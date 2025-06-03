@@ -20,6 +20,7 @@
 >
 > <b>irc.milkmedicine.net</b>
 > <span style="margin-top: -0.5rem; background-color: #007bff; color: #fff;"
-		>~ prescribed for any and all ailments ~ </span>
+		>~ prescribed for any and all ailments ~</span
+	>
 >
 </pre>
