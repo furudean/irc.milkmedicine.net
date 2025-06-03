@@ -1,5 +1,5 @@
 <script>
-	import Ascii from './Ascii.svelte';
+	import Ascii from './Ascii.svelte'
 </script>
 
 <svelte:head>
