@@ -1,17 +1,13 @@
 body {
 	background-color: #fffef1;
 	color: #333;
-	padding: 1em;
 	margin: 0;
-	margin-bottom: 4rem;
-	max-width: 70ch;
 }
 
 h1 {
+	font-family: monospace;
 	font-size: 1rem;
 	margin-top: 2rem;
-	font-family: monospace;
-	font-weight: bold;
 }
 
 h2 {
