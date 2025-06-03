@@ -16,8 +16,9 @@
 
 	<main>
 		<p>
-			<span style="font-size: 2em; font-variant-caps: small-caps;">milkmedicine</span> is a small
-			IRCv3 network started by
+			<span style="font-size: 2em; font-variant-caps: small-caps; line-height: 1">milkmedicine</span
+			>
+			is a small IRCv3 network started by
 			<a href="https://www.himawari.fun" rel="external">~meri</a> in 2025. it is an attempt to return
 			to the roots of online communication. social networks can be fun, but they ask too much of you.
 			irc has no algorithms, no nudging, and no data collection. it is just chat. as it should've been.
