@@ -16,7 +16,8 @@
 
 	<main>
 		<p>
-			<span style="font-size: 1.5em; font-variant-caps: small-caps; line-height: 1"
+			<span
+				style="font-size: 1.5em; font-variant-caps: small-caps; line-height: 1; font-weight: bold;"
 				>milkmedicine</span
 			>
 			is an IRCv3 network, started by
