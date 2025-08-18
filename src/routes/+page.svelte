@@ -131,7 +131,7 @@
 		grid-template-areas:
 			'main'
 			'sidebar';
-		max-width: 50em;
+		max-width: 90ch;
 		padding: 0 1em;
 	}
 

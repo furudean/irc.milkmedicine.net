@@ -15,7 +15,7 @@ h1 {
 
 h2 {
 	/* font-family: monospace; */
-	font-size: 1.25rem;
+	font-size: 1.35rem;
 	margin-top: 3rem;
 	font-variant-caps: small-caps;
 	line-height: 1;
@@ -45,6 +45,7 @@ code {
 p {
 	margin: 1.2rem 0;
 	line-height: 1.5;
+	text-align: justify;
 }
 
 a {
