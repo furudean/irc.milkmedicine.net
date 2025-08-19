@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static'
+import adapter from '@sveltejs/adapter-node'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,11 +10,6 @@ const config = {
 				if (path === '/gamja') return
 
 				// otherwise fail the build
-				throw new Error(message)
-			},
-			handleMissingId: ({ id, message }) => {
-				if (id.startsWith(':~:')) return
-
 				throw new Error(message)
 			}
 		}

@@ -1,5 +1,8 @@
 <script>
 	import Ascii from './Ascii.svelte'
+
+	/** @type {import('./$types').PageProps} */
+	let { data } = $props()
 </script>
 
 <svelte:head>
@@ -15,12 +18,15 @@
 	</aside>
 
 	<main>
+		<section class="motd" aria-label="message of the day">
+			{data.motd}
+		</section>
 		<p>
 			<span class="fake-h1">milkmedicine</span>
 			is an IRC network, started by
 			<a href="https://www.himawari.fun" rel="external">~meri</a> in 2025. it is an attempt to return
 			to the roots of online communication. social networks can be fun, but they ask too much of you.
-			irc has no algorithms, nudging, or data collection. it's just chat, as it should've been.
+			IRC has no algorithms, nudging, or data collection. it's just chat, as it should've been.
 		</p>
 		<p>
 			milkmedicine is still small, and relatively undefined. we like tech, music, art, programming &
@@ -42,7 +48,7 @@
 			>
 		</section>
 
-		<h2>connecting</h2>
+		<h2>i want to join</h2>
 		<p style="border: 1px solid currentColor; padding: 0.5em;">
 			connect to address
 			<a href="irc://irc.milkmedicine.net:6697" data-sveltekit-reload>irc.milkmedicine.net</a>
@@ -55,14 +61,14 @@
 		</p>
 		<p>
 			not sure what client to use? we have a list of <a href="#client-recommendation"
-				>irc client recommendations</a
+				>IRC client recommendations</a
 			>
-			below. you may also connect through our <a href="/gamja" data-sveltekit-reload>webirc</a> client.
+			below. you may also connect through our <a href="/gamja" data-sveltekit-reload>web client</a>.
 		</p>
 
 		<h2>good to know</h2>
 		<blockquote>
-			milkmedicine irc runs on <a href="https://ergo.chat/about" rel="external">ergo</a>. you may
+			milkmedicine IRC runs on <a href="https://ergo.chat/about" rel="external">ergo</a>. you may
 			want to read the
 			<a href="https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md" rel="external"
 				>ergo user guide</a
@@ -79,9 +85,9 @@
 			joins, even if they join later.
 		</p>
 
-		<h2 id="client-recommendation">irc client recommendation</h2>
+		<h2 id="client-recommendation">IRC client recommendation</h2>
 		<p>
-			as milkmedicine is a IRCv3 network, it works best with clients that support features such as
+			as milkmedicine is an IRCv3 network, it works best with clients that support features such as
 			SASL authentication, <code>chathistory</code> and more. you can review
 			<a href="https://ircv3.net/software/clients">this client list</a>
 			for some options. <a href="https://halloy.chat">halloy</a> is a good desktop one. i recommend doing
@@ -112,21 +118,21 @@
 			<p>
 				there also was a brilliant physician in the kingdom who was proficient in all eight
 				technical principles of healing, and this wise doctor manages to put himself in audience
-				with the current physician. the elder is challenged, offering a challenge to the brilliant
-				one. "if you can agree to offer yourself in service to me for forty-eight years, only after
-				that will i teach you the practice of medicine," the elder responds. the wise doctor
-				immediately agrees.
+				with the current physician. the elder is challenged, offering the brilliant one a challenge.
+				"if you can agree to offer yourself in service to me for forty-eight years, only after that
+				will i teach you the practice of medicine," the elder responds. the wise doctor immediately
+				agrees.
 			</p>
 			<p>
 				the elder physician brings the wise doctor to the king as a visiting physician. upon hearing
-				this man speak of his ideas medicine, the king realizes that the elder physician was an
-				imbecile, and he orders him to immediately be banished from the country.
+				this man speak of his ideas about medicine, the king realizes that the elder physician was
+				an imbecile, and he orders him to immediately be banished from the country.
 			</p>
 			<p>
 				the wise doctor, offered a large payment or high rank as a reward for his service, refuses.
 				he says that he will not accept any payment, but that he will only ask that the milk remedy
-				be prohibited in the kingdom. if put a stop to this remedy, deaths will end and peace and
-				happiness will befall the kingdom forever. the king agrees to this request.
+				be prohibited in the kingdom. if you put a stop to this remedy, deaths will end and peace
+				and happiness will befall the kingdom forever. the king agrees to this request.
 			</p>
 			<p>
 				some time later, the king becomes ill once more and the wise doctor is summoned. this time,
@@ -172,6 +178,14 @@
 	main {
 		grid-area: 'main';
 		margin-bottom: 4rem;
+	}
+
+	.motd {
+		display: block;
+		text-align: right;
+		font-family: 'Fantasque Sans Mono', monospace;
+		font-size: 0.8em;
+		opacity: 0.5;
 	}
 
 	aside {
