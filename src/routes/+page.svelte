@@ -16,19 +16,25 @@
 
 	<main>
 		<p>
-			<span
-				style="font-size: 1.5em; font-variant-caps: small-caps; line-height: 1; font-weight: bold;"
-				>milkmedicine</span
-			>
-			is an IRCv3 network, started by
+			<span class="fake-h1">milkmedicine</span>
+			is an IRC network, started by
 			<a href="https://www.himawari.fun" rel="external">~meri</a> in 2025. it is an attempt to return
 			to the roots of online communication. social networks can be fun, but they ask too much of you.
-			irc has no algorithms, no nudging, and no data collection. it is just chat. as it should've been.
+			irc has no algorithms, nudging, or data collection. it's just chat, as it should've been.
 		</p>
 		<p>
 			milkmedicine is still small, and relatively undefined. we like tech, music, art, programming &
-			internet culture. come help figure out what this place is about.
+			internet culture. come help figure out what this place is about, big sister.
 		</p>
+
+		<section>
+			<a
+				href="https://paralogue.org"
+				class="button"
+				title="our sister site, paralogue.org"
+				rel="external"><img src="parabutton.png" alt="old-web style button for paralogue.org" /></a
+			>
+		</section>
 
 		<h2>connecting</h2>
 		<p>
@@ -36,7 +42,7 @@
 			<code>
 				<a href="irc://irc.milkmedicine.net:6697" data-sveltekit-reload>irc.milkmedicine.net</a>
 			</code> on port 6697 with TLS (sometimes called secure connection, or SSL). consult your client's
-			manual if the way forward isn't clear. we do not support unencrypted connections.
+			manual if unsure. we do not support unencrypted connections.
 		</p>
 		<p>
 			you may also connect through our <a href="/gamja" data-sveltekit-reload>webirc</a> client.
@@ -80,9 +86,10 @@
 			<summary>
 				<h2>the name</h2>
 			</summary>
+			<p>milkmedicine is always written as a single word, in lowercase.</p>
 			<p>
-				milkmedicine is a reference to chapter three of the nirvana sutra. in this chapter, the
-				buddha tells the story of a foolish king who has a stubborn, elder doctor as his personal
+				the name is a reference to chapter three of the nirvana sutra. in this chapter, the buddha
+				tells the story of a foolish king who has a stubborn, elder doctor as his personal
 				physician.
 			</p>
 			<p>
@@ -135,9 +142,9 @@
 		padding: 0 1em;
 	}
 
-	@media (width > 100ch) {
+	@media (width > 90ch) {
 		.wrapper {
-			gap: 3rem;
+			gap: 2rem;
 			grid-template-columns: 1fr 2fr;
 			grid-template-areas: 'sidebar main';
 		}
@@ -164,5 +171,9 @@
 		position: sticky;
 		top: 0;
 		padding-top: 1rem;
+	}
+
+	.button {
+		display: inline-flex;
 	}
 </style>
