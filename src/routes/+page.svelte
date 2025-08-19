@@ -30,24 +30,35 @@
 		<section>
 			<a
 				href="https://paralogue.org"
-				class="button"
+				rel="external"
 				title="our sister site, paralogue.org"
-				rel="external"><img src="parabutton.png" alt="old-web style button for paralogue.org" /></a
+				class="button"
+				><img
+					src="parabutton.png"
+					alt="old-web style button for paralogue.org"
+					height="31"
+					width="88"
+				/></a
 			>
 		</section>
 
 		<h2>connecting</h2>
-		<p>
-			in your favorite <a href="#:~:text=irc client recommendations">irc client</a>, connect to
-			<code>
-				<a href="irc://irc.milkmedicine.net:6697" data-sveltekit-reload>irc.milkmedicine.net</a>
-			</code> on port 6697 with TLS (sometimes called secure connection, or SSL). consult your client's
-			manual if unsure. we do not support unencrypted connections.
-		</p>
-		<p>
-			you may also connect through our <a href="/gamja" data-sveltekit-reload>webirc</a> client.
+		<p style="border: 1px solid currentColor; padding: 0.5em;">
+			connect to address
+			<a href="irc://irc.milkmedicine.net:6697" data-sveltekit-reload>irc.milkmedicine.net</a>
+			on port 6697, using <abbr title="sometimes called secure connection, or SSL">TLS</abbr>
 		</p>
 		<p>after connecting, <code>/join #lounge</code> and say hi.</p>
+		<p>
+			consult your client's manual if unsure how to connect with TLS. if you connect without TLS,
+			your connection will be rejected.
+		</p>
+		<p>
+			not sure what client to use? we have a list of <a href="#client-recommendation"
+				>irc client recommendations</a
+			>
+			below. you may also connect through our <a href="/gamja" data-sveltekit-reload>webirc</a> client.
+		</p>
 
 		<h2>good to know</h2>
 		<blockquote>
@@ -68,7 +79,7 @@
 			joins, even if they join later.
 		</p>
 
-		<h2>irc client recommendations</h2>
+		<h2 id="client-recommendation">irc client recommendation</h2>
 		<p>
 			as milkmedicine is a IRCv3 network, it works best with clients that support features such as
 			SASL authentication, <code>chathistory</code> and more. you can review
@@ -144,7 +155,7 @@
 
 	@media (width > 90ch) {
 		.wrapper {
-			gap: 2rem;
+			gap: 3rem;
 			grid-template-columns: 1fr 2fr;
 			grid-template-areas: 'sidebar main';
 		}

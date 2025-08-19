@@ -34,6 +34,7 @@ h1,
 	/* font-family: monospace; */
 	font-size: 1.4rem;
 	margin-top: 2rem;
+	margin-bottom: 0;
 	/* font-variant-caps: small-caps; */
 	line-height: 1;
 	font-weight: bold;
@@ -42,9 +43,20 @@ h1,
 h2 {
 	/* font-family: monospace; */
 	font-size: 1.2rem;
-	margin-top: 3rem;
+	margin-top: 2em;
+	margin-bottom: 0;
 	/* font-variant-caps: small-caps; */
 	line-height: 1;
+}
+
+:is(h1, h2, h3, h4, h5, h6):target {
+	background-color: #e3ff10ff;
+	color: #000;
+	transition: 400ms ease-in-out;
+}
+
+:is(h1, h2, h3, h4, h5, h6):target:before {
+	content: '# ';
 }
 
 pre {
@@ -69,8 +81,8 @@ code {
 }
 
 p {
-	margin: 1.2rem 0;
-	line-height: 1.6;
+	margin: 1.5rem 0;
+	line-height: 1.5;
 	text-align: justify;
 	hyphens: auto;
 }
@@ -90,6 +102,11 @@ blockquote {
 	border-left: 2px solid #dfdfdf;
 	color: #444;
 	line-height: 1.5;
+}
+
+abbr {
+	text-decoration: underline;
+	cursor: help;
 }
 
 summary h2 {
