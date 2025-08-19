@@ -18,8 +18,8 @@
 	</aside>
 
 	<main>
-		<section class="motd">
-			today's fortune: {data.motd}
+		<section class="motd" aria-label="today's fortune">
+			{data.motd}
 		</section>
 		<p>
 			<span class="fake-h1">milkmedicine</span>
