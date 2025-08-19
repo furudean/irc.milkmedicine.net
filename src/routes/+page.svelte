@@ -18,8 +18,8 @@
 	</aside>
 
 	<main>
-		<section class="motd" aria-label="message of the day">
-			{data.motd}
+		<section class="motd">
+			today's fortune: {data.motd}
 		</section>
 		<p>
 			<span class="fake-h1">milkmedicine</span>
@@ -56,8 +56,8 @@
 		</p>
 		<p>after connecting, <code>/join #lounge</code> and say hi.</p>
 		<p>
-			consult your client's manual if unsure how to connect with TLS. if you connect without TLS,
-			your connection will be rejected.
+			consult your client's manual if unsure how to connect with TLS. if connect without it, your
+			connection will be rejected.
 		</p>
 		<p>
 			not sure what client to use? we have a list of <a href="#client-recommendation"
