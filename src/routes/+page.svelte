@@ -33,29 +33,6 @@
 			internet culture. come help figure out what this place is about, big sister.
 		</p>
 
-		<section>
-			<a
-				href="https://paralogue.org"
-				rel="external"
-				title="our sister site, paralogue.org"
-				class="button"
-				><img
-					src="parabutton.png"
-					alt="old-web style button for paralogue.org"
-					height="31"
-					width="88"
-				/></a
-			>
-			<a href="https://www.himawari.fun/" rel="external" class="button"
-				><img
-					src="himawaributton.png"
-					alt="old-web style button for himawari.fun"
-					height="31"
-					width="88"
-				/></a
-			>
-		</section>
-
 		<h2>i want to join</h2>
 		<p style="border: 1px solid currentColor; padding: 0.5em;">
 			connect to address
@@ -154,6 +131,28 @@
 				teaching itself.
 			</p>
 		</details>
+		<p>
+			<a
+				href="https://paralogue.org"
+				rel="external"
+				title="our sister site, paralogue.org"
+				class="button"
+				><img
+					src="parabutton.png"
+					alt="old-web style button for paralogue.org"
+					height="31"
+					width="88"
+				/></a
+			>
+			<a href="https://www.himawari.fun/" rel="external" title="~meri's website" class="button"
+				><img
+					src="himawaributton.png"
+					alt="old-web style button for himawari.fun"
+					height="31"
+					width="88"
+				/></a
+			>
+		</p>
 	</main>
 </div>
 
