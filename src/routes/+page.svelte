@@ -131,6 +131,7 @@
 				teaching itself.
 			</p>
 		</details>
+		<hr />
 		<p>
 			<a
 				href="https://paralogue.org"

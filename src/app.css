@@ -117,6 +117,14 @@ summary:has(h2) {
 	margin-top: 3rem;
 }
 
+hr {
+	border: none;
+	height: 1px;
+	width: 100%;
+	background: currentColor;
+	margin: 3rem 0;
+}
+
 .screenreader {
 	position: absolute !important;
 	height: 1px;
