@@ -46,6 +46,14 @@
 					width="88"
 				/></a
 			>
+			<a href="https://www.himawari.fun/" rel="external" class="button"
+				><img
+					src="himawaributton.png"
+					alt="old-web style button for himawari.fun"
+					height="31"
+					width="88"
+				/></a
+			>
 		</section>
 
 		<h2>i want to join</h2>
@@ -201,5 +209,9 @@
 
 	.button {
 		display: inline-flex;
+	}
+
+	.button img {
+		image-rendering: pixelated;
 	}
 </style>
