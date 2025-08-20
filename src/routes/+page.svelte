@@ -186,6 +186,7 @@
 		font-family: 'Fantasque Sans Mono', monospace;
 		font-size: 0.8em;
 		opacity: 0.5;
+		text-wrap: balance;
 	}
 
 	aside {
