@@ -6,8 +6,11 @@
 </script>
 
 <svelte:head>
-	<title>milkmedicine irc</title>
-	<meta name="description" content="~ prescribed for any and all ailments ~" />
+	<title>milkmedicine IRC</title>
+	<meta
+		name="description"
+		content="milkmedicine is an IRC network for anime, tech, music, art programming & internet culture"
+	/>
 </svelte:head>
 
 <div class="wrapper">
@@ -29,8 +32,8 @@
 			IRC has no algorithms, nudging, or data collection. it's just chat, as it should've been.
 		</p>
 		<p>
-			milkmedicine is still small, and relatively undefined. we like tech, music, art, programming &
-			internet culture. come help figure out what this place is about, big sister.
+			milkmedicine is still small, and relatively undefined. we like anime, tech, music, art,
+			programming & internet culture. come help figure out what this place is about, big sister.
 		</p>
 
 		<h2>i want to join</h2>
