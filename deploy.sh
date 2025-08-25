@@ -5,10 +5,11 @@ cd "$(dirname "$0")"
 
 npm run build
 
-scp -r build irc.milkmedicine.net:/home/node
+rsync -zhave ssh --progress build irc.milkmedicine.net:/home/node
 ssh irc.milkmedicine.net "
-    rm -rf /home/node/irc.milkmedicine.net/ && \
-    mv /home/node/build/ /home/node/irc.milkmedicine.net/ && \
-    chown -R node:node /home/node/irc.milkmedicine.net && \
+    cd /home/node && \
+    rm -rf irc.milkmedicine.net && \
+    mv build irc.milkmedicine.net && \
+    chown -R node:node irc.milkmedicine.net && \
     systemctl restart milkweb.service
 "
