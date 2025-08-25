@@ -176,14 +176,6 @@
 			grid-template-columns: 1fr 2fr;
 			grid-template-areas: 'sidebar main';
 		}
-
-		main {
-			padding-top: 1rem;
-		}
-
-		main > :first-child {
-			margin-top: 0;
-		}
 	}
 
 	main {
@@ -198,6 +190,7 @@
 		font-size: 0.8em;
 		opacity: 0.5;
 		text-wrap: balance;
+		margin: 1rem 0;
 	}
 
 	aside {
