@@ -9,7 +9,7 @@
 	<title>milkmedicine IRC</title>
 	<meta
 		name="description"
-		content="milkmedicine is an IRC network for anime, tech, music, art programming & internet culture"
+		content="milkmedicine is an IRC network for anime, tech, music, art, programming & internet obscura"
 	/>
 </svelte:head>
 
@@ -33,7 +33,7 @@
 		</p>
 		<p>
 			milkmedicine is still small, and relatively undefined. we like anime, tech, music, art,
-			programming & internet culture. come help figure out what this place is about, big sister.
+			programming & internet obscura. come help figure out what this place is about, big sister.
 		</p>
 
 		<h2>i want to join</h2>
