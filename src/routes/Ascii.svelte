@@ -25,9 +25,12 @@
 	let info = $state('')
 
 	if (status) {
-		info += `${numeric(status.users.total)}/${numeric(status.users.max)} users online in ${numeric(status.channels)} channels.`
+		info += `There are ${numeric(status.users.total)}/${numeric(status.users.max)} users `
+		info += `online in ${numeric(status.channels)} channels.`
 		info += '\n\n'
-		info += `Server running on Ergo ${status.version} since `
+		info += `Server is running Ergo version ${status.version}.`
+		info += '\n\n'
+		info += `The server has been running since `
 		info += `${locale.format(new Date(status.start_time))}.`
 		info += '\n'
 	} else {
