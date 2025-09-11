@@ -39,7 +39,7 @@
 		<h2>i want to join</h2>
 		<p style="border: 1px solid currentColor; padding: 0.5em;">
 			connect to address
-			<a href="irc://irc.milkmedicine.net:6697" data-sveltekit-reload>irc.milkmedicine.net</a>
+			<a href="ircs://irc.milkmedicine.net:6697" data-sveltekit-reload>irc.milkmedicine.net</a>
 			on port 6697, using <abbr title="sometimes called secure connection, or SSL">TLS</abbr>
 		</p>
 		<p>after connecting, <code>/join #lounge</code> and say hi.</p>
