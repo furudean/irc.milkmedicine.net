@@ -16,7 +16,7 @@
 <div class="wrapper">
 	<aside>
 		<div class="aside-inner">
-			<Ascii></Ascii>
+			<Ascii status={data.status}></Ascii>
 		</div>
 	</aside>
 
@@ -52,6 +52,12 @@
 				>IRC client recommendations</a
 			>
 			below. you may also connect through our <a href="/gamja" data-sveltekit-reload>web client</a>.
+		</p>
+		<p>
+			if you are completely new to IRC you may find <a
+				href="https://www.irchelp.org/"
+				rel="external">www.irchelp.com</a
+			> a good resource for learning the basics.
 		</p>
 
 		<h2>good to know</h2>
@@ -195,6 +201,7 @@
 
 	aside {
 		grid-area: 'sidebar';
+		width: 32ch;
 	}
 
 	.aside-inner {
