@@ -22,7 +22,10 @@
 
 	<main>
 		<section class="motd" aria-label="today's fortune">
-			{data.motd}
+			<a
+				href="https://github.com/furudean/irc.milkmedicine.net/blob/main/src/lib/motd.txt"
+				rel="external">{data.motd}</a
+			>
 		</section>
 		<p>
 			<span class="fake-h1">milkmedicine</span>
@@ -197,6 +200,10 @@
 		opacity: 0.5;
 		text-wrap: balance;
 		margin: 1rem 0;
+	}
+
+	.motd :any-link {
+		color: inherit;
 	}
 
 	aside {
