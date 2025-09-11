@@ -204,6 +204,12 @@
 
 	.motd :any-link {
 		color: inherit;
+		text-decoration: none;
+	}
+
+	.motd :any-link:hover,
+	.motd :any-link:focus {
+		text-decoration: underline;
 	}
 
 	aside {
