@@ -15,13 +15,17 @@
 		day: 'numeric',
 		hour: '2-digit',
 		minute: '2-digit',
-		timeZoneName: 'short'
+		timeZoneName: 'short',
+		timeZone: 'America/Los_Angeles'
 	})
+
+	/** @type {(n: number) => string} */
+	const numeric = (n) => n.toLocaleString('en-US')
 
 	let info = $state('')
 
 	if (status) {
-		info += `${status.users.total} users online in ${status.channels} channels`
+		info += `${numeric(status.users.total)} users online in ${numeric(status.channels)} channels`
 		info += '\n\n'
 		info += `Server running on Ergo ${status.version} since `
 		info += locale.format(new Date(status.start_time))
@@ -52,7 +56,7 @@
 
 <h1 class="screenreader">irc.milkmedicine.net</h1>
 <p class="screenreader">prescribed for any and all ailments</p>
-<pre aria-hidden="true"><!-- prettier-ignore -->>
+<pre aria-hidden="true"><!-- prettier-ignore -->
 {reisen}
 >
 > <b>irc.milkmedicine.net</b>
