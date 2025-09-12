@@ -48,10 +48,10 @@
 			let result = `There are ${numeric(status.users.total)}/${numeric(status.users.max)} users `
 			result += `online in ${numeric(status.channels)} channels.`
 			result += '\n\n'
-			result += `The server is running Ergo version ${status.version}.`
-			result += '\n\n'
-			result += `The server has been running since `
+			result += `The server has been up since `
 			result += `${locale.format(new Date(status.start_time))}.`
+			result += '\n\n'
+			result += `Running on Ergo ${status.version} (#${status.commit.slice(0, 8)}), compiled using ${status.go_version}.`
 			result += '\n'
 			return result
 		} else {
