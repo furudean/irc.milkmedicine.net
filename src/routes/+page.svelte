@@ -75,7 +75,7 @@
 			You may want to read the
 			<a
 				href="https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md"
-				rel="external">Ergo User Guide</a
+				rel="external">Ergo user guide</a
 			> for more information on how to use the network.
 		</blockquote>
 		<p>
