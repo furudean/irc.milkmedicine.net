@@ -11,6 +11,7 @@
 		name="description"
 		content="milkmedicine is an IRC network for anime, tech, music, art, programming & internet obscura"
 	/>
+	<meta name="theme-color" content="#007bff" />
 </svelte:head>
 
 <div class="wrapper">
@@ -21,7 +22,7 @@
 	</aside>
 
 	<main>
-		<section class="motd" aria-label="today's fortune">
+		<section class="motd" aria-label="Today's Fortune">
 			<a
 				href="https://github.com/furudean/irc.milkmedicine.net/blob/main/src/lib/motd.txt"
 				rel="external">{data.motd}</a
@@ -29,118 +30,130 @@
 		</section>
 		<p>
 			<span class="fake-h1">milkmedicine</span>
-			is an IRC network, started by
-			<a href="https://www.himawari.fun" rel="external">~meri</a> in 2025. it is an attempt to return
-			to the roots of online communication. social networks can be fun, but they ask too much of you.
-			IRC has no algorithms, nudging, or data collection. it's just chat, as it should've been.
+			is an IRC network, conjured into being by
+			<a href="https://www.himawari.fun" rel="external">~meri</a> in 2025. We like anime, tech,
+			music, art, programming & internet obscura. Come chat, big sister.
 		</p>
 		<p>
-			milkmedicine is still small, and relatively undefined. we like anime, tech, music, art,
-			programming & internet obscura. come help figure out what this place is about, big sister.
+			Social networks can be fun, but they're always asking for more of you. We're a
+			handful of users who decided to step sideways from all that. IRC has no algorithms
+			whispering in your ear, no nudging toward engagement, no data harvesting. Just pure,
+			unfiltered conversation— the way the internet used to dream of itself.
 		</p>
 
-		<h2>i want to join</h2>
+		<h2>I want to join</h2>
 		<p style="border: 1px solid currentColor; padding: 0.5em;">
-			connect to address
-			<a href="ircs://irc.milkmedicine.net:6697" data-sveltekit-reload>irc.milkmedicine.net</a>
-			on port 6697, using <abbr title="sometimes called secure connection, or SSL">TLS</abbr>
+			Connect to address
+			<a href="ircs://irc.milkmedicine.net:6697" data-sveltekit-reload
+				>irc.milkmedicine.net</a
+			>
+			on port 6697, using
+			<abbr title="Sometimes called secure connection, or SSL">TLS</abbr>
 		</p>
-		<p>after connecting, <code>/join #lounge</code> and say hi.</p>
+		<p>After connecting, <code>/join #lounge</code> and say hi.</p>
 		<p>
-			consult your client's manual if unsure how to connect with TLS. if connect without it, your
-			connection will be rejected.
+			Consult your client's manual if unsure how to connect with TLS. If you connect
+			without it, your connection will be rejected.
 		</p>
 		<p>
-			not sure what client to use? we have a list of <a href="#client-recommendation"
+			Not sure what client to use? We have a list of <a href="#client-recommendation"
 				>IRC client recommendations</a
 			>
-			below. you may also connect through our <a href="/gamja" data-sveltekit-reload>web client</a>.
+			below. You may also connect through our
+			<a href="/gamja" data-sveltekit-reload>web client</a>.
 		</p>
 		<p>
-			if you are completely new to IRC you may find <a
+			If you are completely new to IRC you may find <a
 				href="https://www.irchelp.org/"
 				rel="external">www.irchelp.com</a
 			> a good resource on the basics.
 		</p>
 
-		<h2>good to know</h2>
+		<h2>Good to know</h2>
 		<blockquote>
-			milkmedicine IRC runs on <a href="https://ergo.chat/about" rel="external">ergo</a>. you may
-			want to read the
-			<a href="https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md" rel="external"
-				>ergo user guide</a
+			milkmedicine IRC runs on <a href="https://ergo.chat/about" rel="external">Ergo</a>.
+			You may want to read the
+			<a
+				href="https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md"
+				rel="external">Ergo User Guide</a
 			> for more information on how to use the network.
 		</blockquote>
 		<p>
-			you can register with <code>/msg NickServ register &lt;password&gt;</code> to protect your
-			nickname. you can then use SASL authentication or
+			You can register with <code>/msg NickServ register &lt;password&gt;</code>
+			to protect your nickname. You can then use SASL authentication or
 			<code>/msg NickServ identify &lt;password&gt;</code> to log in on future connections.
 		</p>
 		<p>
-			chat history may be stored indefinitely in registered channels, though this can be disabled by
-			channel operators. keep in mind that anything you say in a channel might be seen by anyone who
-			joins, even if they join later.
+			Chat history may be stored indefinitely in registered channels, though this can be
+			disabled by channel operators. Keep in mind that anything you say in a channel might
+			be seen by anyone who joins, even if they join later.
 		</p>
 
-		<h2 id="client-recommendation">IRC client recommendation</h2>
+		<h2 id="client-recommendation">IRC client recommendations</h2>
 		<p>
-			as milkmedicine is an IRCv3 network, it works best with clients that support features such as
-			SASL authentication, <code>chathistory</code> and more. you can review
+			As milkmedicine is an IRCv3 network, it works best with clients that support
+			features such as SASL authentication, <code>chathistory</code>
+			extensions and more. You can review
 			<a href="https://ircv3.net/software/clients">this client list</a>
-			for some options. <a href="https://halloy.chat">halloy</a> is a good desktop one. i recommend doing
-			your own research and experimenting with different clients to find one that suits you best.
+			for some options. <a href="https://halloy.chat">Halloy</a> is a good desktop one. I recommend
+			doing your own research and experimenting with different clients to find one that suits
+			you best.
 		</p>
 		<p>
-			i personally run <a href="https://soju.im/" rel="external">soju</a> bouncer +
-			<a href="https://git.sr.ht/~delthas/senpai/" rel="external">senpai</a> client, but it's pretty
-			advanced to set up and use, so i wouldn't recommend it for beginners.
+			I personally run <a href="https://soju.im/" rel="external">Soju</a>
+			bouncer +
+			<a href="https://git.sr.ht/~delthas/senpai/" rel="external">Senpai</a> client, but it's
+			pretty advanced to set up and use, so I wouldn't recommend it for beginners.
 		</p>
 
 		<details>
 			<summary>
-				<h2>the name</h2>
+				<h2>The name</h2>
 			</summary>
 			<p>milkmedicine is always written as a single word, in lowercase.</p>
 			<p>
-				the name is a reference to chapter three of the nirvana sutra. in this chapter, the buddha
-				tells the story of a foolish king who has a stubborn, elder doctor as his personal
-				physician.
+				The name is a reference to Chapter Three of the Nirvana Sutra. In this chapter,
+				the Buddha tells the story of a foolish king who has a stubborn, elder doctor as
+				his personal physician.
 			</p>
 			<p>
-				the doctor refuses to treat the king with anything but milk. whether it was an illness of
-				wind, of cold, of heat--in each case he nevertheless administered milk. the king could not
-				discern if the physician himself understood what was beneficial or deleterious, good or bad,
-				in his medicinal use of milk.
+				The doctor refuses to treat the king with anything but milk. Whether it was an
+				illness of wind, of cold, of heat--in each case he nevertheless administered milk.
+				The king could not discern if the physician himself understood what was beneficial
+				or deleterious, good or bad, in his medicinal use of milk.
 			</p>
 			<p>
-				there also was a brilliant physician in the kingdom who was proficient in all eight
-				technical principles of healing, and this wise doctor manages to put himself in audience
-				with the current physician. the elder is challenged, offering the brilliant one a challenge.
-				"if you can agree to offer yourself in service to me for forty-eight years, only after that
-				will i teach you the practice of medicine," the elder responds. the wise doctor immediately
-				agrees.
+				There also was a brilliant physician in the kingdom who was proficient in all
+				eight technical principles of healing, and this wise doctor manages to put himself
+				in audience with the current physician. The elder is challenged, offering the
+				brilliant one a challenge. "If you can agree to offer yourself in service to me
+				for forty-eight years, only after that will I teach you the practice of medicine,"
+				the elder responds. The wise doctor immediately agrees.
 			</p>
 			<p>
-				the elder physician brings the wise doctor to the king as a visiting physician. upon hearing
-				this man speak of his ideas about medicine, the king realizes that the elder physician was
-				an imbecile, and he orders him to immediately be banished from the country.
+				The elder physician brings the wise doctor to the king as a visiting physician.
+				Upon hearing this man speak of his ideas about medicine, the king realizes that
+				the elder physician was an imbecile, and he orders him to immediately be banished
+				from the country.
 			</p>
 			<p>
-				the wise doctor, offered a large payment or high rank as a reward for his service, refuses.
-				he says that he will not accept any payment, but that he will only ask that the milk remedy
-				be prohibited in the kingdom. if you put a stop to this remedy, deaths will end and peace
-				and happiness will befall the kingdom forever. the king agrees to this request.
+				The wise doctor, offered a large payment or high rank as a reward for his service,
+				refuses. He says that he will not accept any payment, but that he will only ask
+				that the milk remedy be prohibited in the kingdom. If you put a stop to this
+				remedy, deaths will end and peace and happiness will befall the kingdom forever.
+				The king agrees to this request.
 			</p>
 			<p>
-				some time later, the king becomes ill once more and the wise doctor is summoned. this time,
-				the doctor prescribes the milk remedy. the king, surprised and upset, asks how something
-				previously banned as unsuitable medicine could now be recommended. the wise doctor replies
-				in effect, "it all depends on the particular circumstances."
+				Some time later, the king becomes ill once more and the wise doctor is summoned.
+				This time, the doctor prescribes the milk remedy. The king, surprised and upset,
+				asks how something previously banned as unsuitable medicine could now be
+				recommended. The wise doctor replies in effect, "It all depends on the particular
+				circumstances."
 			</p>
 			<p>
-				those circumstances must be properly understood in order for the remedy to be effective. the
-				wise doctor simply banned the milk remedy to teach the king a lesson about the nature of
-				teaching itself.
+				Those circumstances must be properly understood in order for the remedy to be
+				effective. The wise doctor simply banned the milk remedy to teach the king a
+				lesson about the nature of teaching itself.
 			</p>
 		</details>
 		<hr />
@@ -148,19 +161,23 @@
 			<a
 				href="https://paralogue.org"
 				rel="external"
-				title="our sister site, paralogue.org"
+				title="Our sister site, paralogue.org"
 				class="button"
 				><img
 					src="parabutton.png"
-					alt="old-web style button for paralogue.org"
+					alt="Old-web Style Button for paralogue.org"
 					height="31"
 					width="88"
 				/></a
 			>
-			<a href="https://www.himawari.fun/" rel="external" title="~meri's website" class="button"
+			<a
+				href="https://www.himawari.fun/"
+				rel="external"
+				title="~meri's Website"
+				class="button"
 				><img
 					src="himawaributton.png"
-					alt="old-web style button for himawari.fun"
+					alt="Old-web Style Button for himawari.fun"
 					height="31"
 					width="88"
 				/></a
@@ -175,11 +192,11 @@
 		grid-template-areas:
 			'main'
 			'sidebar';
-		max-width: 90ch;
+		max-width: 85ch;
 		padding: 0 1em;
 	}
 
-	@media (width > 90ch) {
+	@media (width > 85ch) {
 		.wrapper {
 			gap: 3rem;
 			grid-template-columns: 1fr 2fr;
@@ -214,7 +231,6 @@
 
 	aside {
 		grid-area: 'sidebar';
-		width: 32ch;
 	}
 
 	.aside-inner {
