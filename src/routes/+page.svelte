@@ -37,8 +37,8 @@
 		<p>
 			Social networks can be fun, but they're always asking for more of you. We're a
 			handful of users who decided to step sideways from all that. IRC has no algorithms
-			whispering in your ear, no nudging toward engagement, no data harvesting. Just pure,
-			unfiltered conversation— the way the internet used to dream of itself.
+			whispering in your ear, no nudging toward engagement, no data harvesting. Just
+			conversation— in the way the internet used to dream of itself.
 		</p>
 
 		<h2>I want to join</h2>
