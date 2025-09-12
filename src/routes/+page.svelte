@@ -60,7 +60,7 @@
 			if you are completely new to IRC you may find <a
 				href="https://www.irchelp.org/"
 				rel="external">www.irchelp.com</a
-			> a good resource for learning the basics.
+			> a good resource on the basics.
 		</p>
 
 		<h2>good to know</h2>

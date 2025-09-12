@@ -28,7 +28,7 @@
 		info += `There are ${numeric(status.users.total)}/${numeric(status.users.max)} users `
 		info += `online in ${numeric(status.channels)} channels.`
 		info += '\n\n'
-		info += `Server is running Ergo version ${status.version}.`
+		info += `The server is running Ergo version ${status.version}.`
 		info += '\n\n'
 		info += `The server has been running since `
 		info += `${locale.format(new Date(status.start_time))}.`
@@ -37,21 +37,27 @@
 		info += 'could not fetch server status :-(\n'
 	}
 
-	const line_length = 40
+	const line_length = 41
 
 	const formatted_info = $derived.by(() => {
 		const lines = info.split('\n')
 		const chunks = lines.flatMap((line) => {
-			// If the line is empty, preserve it as a reset (empty line)
+			// if line is empty, preserve it
 			if (line === '') return ['']
-			const lineChunks = []
-			for (let i = 0; i < line.length; i += line_length) {
-				let chunk = line.slice(i, i + line_length)
-				// Remove leading space from wrapped lines except the first
-				if (i > 0) chunk = chunk.replace(/^\s+/, '')
-				lineChunks.push(chunk)
+			const chunks = []
+			let words = line.split(' ')
+			let current_line = ''
+			for (const word of words) {
+				// if adding the word would exceed the line length, push current_line and start new
+				if ((current_line + (current_line ? ' ' : '') + word).length > line_length) {
+					if (current_line) chunks.push(current_line)
+					current_line = word
+				} else {
+					current_line += (current_line ? ' ' : '') + word
+				}
 			}
-			return lineChunks
+			if (current_line) chunks.push(current_line)
+			return chunks
 		})
 		return chunks.map((chunk) => (chunk === '' ? '>' : '> ' + chunk)).join('\n')
 	})
