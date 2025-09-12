@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte'
 	import ascii from './ascii.txt?raw'
 
 	/** @type {{ status: import("./$types").PageData['status'] }} */
@@ -19,6 +20,9 @@
 		timeZone: 'America/Los_Angeles'
 	})
 
+	/** @type {HTMLPreElement} */
+	let pre_element
+
 	/** @type {(n: number) => string} */
 	const numeric = (n) => n.toLocaleString('en-US')
 
@@ -37,7 +41,39 @@
 		info += 'could not fetch server status :-(\n'
 	}
 
-	const line_length = 41
+	let line_length = $state(42)
+
+	onMount(() => {
+		function update_line_length() {
+			const style = getComputedStyle(pre_element)
+			const canvas = document.createElement('canvas')
+			const context = canvas.getContext('2d')
+			if (context) {
+				context.font = style.font
+				const metrics = context.measureText('a')
+				const char_width = metrics.width || 8
+				// get the width of the pre element
+				const pre_width = pre_element.clientWidth || 600
+				// calculate how many characters fit in the pre element
+				line_length = Math.floor(pre_width / char_width)
+				return
+			}
+			line_length = 42
+		}
+
+		update_line_length()
+
+		document.fonts.ready.then(() => {
+			update_line_length()
+		})
+
+		const resize_observer = new ResizeObserver(update_line_length)
+		resize_observer.observe(pre_element)
+
+		return () => {
+			resize_observer.disconnect()
+		}
+	})
 
 	const formatted_info = $derived.by(() => {
 		const lines = info.split('\n')
@@ -65,7 +101,7 @@
 
 <h1 class="screenreader">irc.milkmedicine.net</h1>
 <p class="screenreader">prescribed for any and all ailments</p>
-<pre aria-hidden="true"><!-- prettier-ignore -->
+<pre aria-hidden="true" bind:this={pre_element}><!-- prettier-ignore -->
 {reisen}
 >
 > <b>irc.milkmedicine.net</b>
