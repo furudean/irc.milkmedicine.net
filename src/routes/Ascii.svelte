@@ -5,6 +5,11 @@
 	/** @type {{ status: import("./$types").PageData['status'] }} */
 	let { status } = $props()
 
+	let line_length = $state(42)
+
+	/** @type {HTMLPreElement} */
+	let pre_element
+
 	const reisen = ascii
 		.split('\n')
 		.map((line) => '> ' + line)
@@ -20,47 +25,41 @@
 		timeZone: 'America/Los_Angeles'
 	})
 
-	/** @type {HTMLPreElement} */
-	let pre_element
-
 	/** @type {(n: number) => string} */
 	const numeric = (n) => n.toLocaleString('en-US')
 
-	let info = $state('')
+	function update_line_length() {
+		const context = document.createElement('canvas')?.getContext('2d')
 
-	if (status) {
-		info += `There are ${numeric(status.users.total)}/${numeric(status.users.max)} users `
-		info += `online in ${numeric(status.channels)} channels.`
-		info += '\n\n'
-		info += `The server is running Ergo version ${status.version}.`
-		info += '\n\n'
-		info += `The server has been running since `
-		info += `${locale.format(new Date(status.start_time))}.`
-		info += '\n'
-	} else {
-		info += 'could not fetch server status :-(\n'
-	}
-
-	let line_length = $state(42)
-
-	onMount(() => {
-		function update_line_length() {
-			const style = getComputedStyle(pre_element)
-			const canvas = document.createElement('canvas')
-			const context = canvas.getContext('2d')
-			if (context) {
-				context.font = style.font
-				const metrics = context.measureText('a')
-				const char_width = metrics.width || 8
-				// get the width of the pre element
-				const pre_width = pre_element.clientWidth || 600
-				// calculate how many characters fit in the pre element
-				line_length = Math.floor(pre_width / char_width)
-				return
-			}
-			line_length = 42
+		if (context) {
+			context.font = getComputedStyle(pre_element).font
+			const metrics = context.measureText('a')
+			const char_width = metrics.width
+			line_length = Math.floor(pre_element.clientWidth / char_width)
+			return
 		}
 
+		// fallback
+		line_length = 42
+	}
+
+	const info = $derived.by(() => {
+		if (status) {
+			let result = `There are ${numeric(status.users.total)}/${numeric(status.users.max)} users `
+			result += `online in ${numeric(status.channels)} channels.`
+			result += '\n\n'
+			result += `The server is running Ergo version ${status.version}.`
+			result += '\n\n'
+			result += `The server has been running since `
+			result += `${locale.format(new Date(status.start_time))}.`
+			result += '\n'
+			return result
+		} else {
+			return 'could not fetch server status :-(\n'
+		}
+	})
+
+	onMount(() => {
 		update_line_length()
 
 		document.fonts.ready.then(() => {
@@ -84,11 +83,13 @@
 			let words = line.split(' ')
 			let current_line = ''
 			for (const word of words) {
-				// if adding the word would exceed the line length, push current_line and start new
 				if ((current_line + (current_line ? ' ' : '') + word).length > line_length) {
+					// if adding the word would exceed the line length, push current_line
+					// and start new
 					if (current_line) chunks.push(current_line)
 					current_line = word
 				} else {
+					// else, add the word to the current line
 					current_line += (current_line ? ' ' : '') + word
 				}
 			}
