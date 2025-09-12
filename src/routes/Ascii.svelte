@@ -5,7 +5,7 @@
 	/** @type {{ status: import("./$types").PageData['status'] }} */
 	let { status } = $props()
 
-	let line_length = $state(42)
+	let line_length = $state(39)
 
 	/** @type {HTMLPreElement} */
 	let pre_element
@@ -40,7 +40,7 @@
 		}
 
 		// fallback
-		line_length = 42
+		line_length = 39
 	}
 
 	const info = $derived.by(() => {
@@ -51,7 +51,8 @@
 			result += `The server has been up since `
 			result += `${locale.format(new Date(status.start_time))}.`
 			result += '\n\n'
-			result += `Running on Ergo ${status.version} (#${status.commit.slice(0, 8)}), compiled using ${status.go_version}.`
+			result += `Running on Ergo ${status.version} (#${status.commit.slice(0, 8)}), `
+			result += `compiled using ${status.go_version}.`
 			result += '\n'
 			return result
 		} else {
@@ -62,9 +63,7 @@
 	onMount(() => {
 		update_line_length()
 
-		document.fonts.ready.then(() => {
-			update_line_length()
-		})
+		document.fonts.ready.then(update_line_length)
 
 		const resize_observer = new ResizeObserver(update_line_length)
 		resize_observer.observe(pre_element)
@@ -80,9 +79,8 @@
 			// if line is empty, preserve it
 			if (line === '') return ['']
 			const chunks = []
-			let words = line.split(' ')
 			let current_line = ''
-			for (const word of words) {
+			for (const word of line.split(' ')) {
 				if ((current_line + (current_line ? ' ' : '') + word).length > line_length) {
 					// if adding the word would exceed the line length, push current_line
 					// and start new
