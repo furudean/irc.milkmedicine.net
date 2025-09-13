@@ -35,10 +35,10 @@
 			music, art, programming & internet obscura. Come chat, big sister.
 		</p>
 		<p>
-			Social networks can be fun, but they're always asking for more of you. We're a
-			handful of users who decided to step sideways from all that. IRC has no algorithms
-			whispering in your ear, no nudging toward engagement, no data harvesting. Just
-			conversation— in the way the internet used to dream of itself.
+			Social networks can be fun, but they're always asking for more of you. We decided to
+			step away from all that. IRC has no algorithms whispering, no nudging toward
+			engagement, and no data harvesting. It's just conversation— in the way the internet
+			used to dream of itself. Come enjoy the tea with us.
 		</p>
 
 		<h2>I want to join</h2>
