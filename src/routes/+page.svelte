@@ -32,13 +32,13 @@
 			<span class="fake-h1">milkmedicine</span>
 			is an IRC network, conjured into being by
 			<a href="https://www.himawari.fun" rel="external">~meri</a> in 2025. We like anime, tech,
-			music, art, programming & internet obscura. Come chat, big sister.
+			music, art, programming & internet obscura.
 		</p>
 		<p>
 			Social networks can be fun, but they're always asking for more of you. We decided to
 			step away from all that. IRC has no algorithms whispering, no nudging toward
 			engagement, and no data harvesting. It's just conversation— in the way the internet
-			used to dream of itself. Come enjoy the tea with us.
+			used to dream of itself. Come chat, big sister.
 		</p>
 
 		<h2>I want to join</h2>
