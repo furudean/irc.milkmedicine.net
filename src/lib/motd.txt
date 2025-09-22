@@ -66,3 +66,4 @@ The cat from mahjong sole
 Every morning. Oats breakfast. No exceptions
 Fish version: miltmedicine
 git commit -m "fixed everything (hopefully)"
+ily in the tui
