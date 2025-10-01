@@ -207,7 +207,7 @@
 	}
 
 	footer {
-		margin: 3rem 0;
+		margin-top: 3rem;
 	}
 
 	footer img {
