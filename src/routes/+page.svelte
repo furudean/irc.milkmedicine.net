@@ -133,6 +133,12 @@
 		</p>
 		<footer>
 			<img src="medicine.png" alt="Medicine is yummy!!!!" />
+			<p>
+				<a
+					href="https://x.com/NES_Ghost/status/1973016819087864027"
+					rel="external noreferrer">source</a
+				>
+			</p>
 		</footer>
 	</main>
 </div>
@@ -215,6 +221,15 @@
 		max-width: 22rem;
 		height: auto;
 		margin: 0 auto;
+	}
+
+	footer p {
+		text-align: center;
+		font-size: 0.8rem;
+	}
+
+	footer :any-link {
+		color: inherit;
 	}
 
 	/* footer :any-link {
