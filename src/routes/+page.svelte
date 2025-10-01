@@ -18,6 +18,32 @@
 	<aside>
 		<div class="aside-inner">
 			<Ascii status={data.status}></Ascii>
+			<div class="buttons">
+				<a
+					href="https://paralogue.org"
+					rel="external"
+					title="Our sister site, paralogue.org"
+					class="button"
+					><img
+						src="parabutton.png"
+						alt="Old-web Style Button for paralogue.org"
+						height="31"
+						width="88"
+					/></a
+				>
+				<a
+					href="https://www.himawari.fun/"
+					rel="external"
+					title="~meri's Website"
+					class="button"
+					><img
+						src="himawaributton.png"
+						alt="Old-web Style Button for himawari.fun"
+						height="31"
+						width="88"
+					/></a
+				>
+			</div>
 		</div>
 	</aside>
 
@@ -105,84 +131,9 @@
 			<a href="https://git.sr.ht/~delthas/senpai/" rel="external">Senpai</a> client, but it's
 			pretty advanced to set up and use, so I wouldn't recommend it for beginners.
 		</p>
-
-		<details>
-			<summary>
-				<h2>The name</h2>
-			</summary>
-			<p>milkmedicine is always written as a single word, in lowercase.</p>
-			<p>
-				The name is a reference to Chapter Three of the Nirvana Sutra. In this chapter,
-				the Buddha tells the story of a foolish king who has a stubborn, elder doctor as
-				his personal physician.
-			</p>
-			<p>
-				The doctor refuses to treat the king with anything but milk. Whether it was an
-				illness of wind, of cold, of heat--in each case he nevertheless administered milk.
-				The king could not discern if the physician himself understood what was beneficial
-				or deleterious, good or bad, in his medicinal use of milk.
-			</p>
-			<p>
-				There also was a brilliant physician in the kingdom who was proficient in all
-				eight technical principles of healing, and this wise doctor manages to put himself
-				in audience with the current physician. The elder is challenged, offering the
-				brilliant one a challenge. "If you can agree to offer yourself in service to me
-				for forty-eight years, only after that will I teach you the practice of medicine,"
-				the elder responds. The wise doctor immediately agrees.
-			</p>
-			<p>
-				The elder physician brings the wise doctor to the king as a visiting physician.
-				Upon hearing this man speak of his ideas about medicine, the king realizes that
-				the elder physician was an imbecile, and he orders him to immediately be banished
-				from the country.
-			</p>
-			<p>
-				The wise doctor, offered a large payment or high rank as a reward for his service,
-				refuses. He says that he will not accept any payment, but that he will only ask
-				that the milk remedy be prohibited in the kingdom. If you put a stop to this
-				remedy, deaths will end and peace and happiness will befall the kingdom forever.
-				The king agrees to this request.
-			</p>
-			<p>
-				Some time later, the king becomes ill once more and the wise doctor is summoned.
-				This time, the doctor prescribes the milk remedy. The king, surprised and upset,
-				asks how something previously banned as unsuitable medicine could now be
-				recommended. The wise doctor replies in effect, "It all depends on the particular
-				circumstances."
-			</p>
-			<p>
-				Those circumstances must be properly understood in order for the remedy to be
-				effective. The wise doctor simply banned the milk remedy to teach the king a
-				lesson about the nature of teaching itself.
-			</p>
-		</details>
-		<hr />
-		<p>
-			<a
-				href="https://paralogue.org"
-				rel="external"
-				title="Our sister site, paralogue.org"
-				class="button"
-				><img
-					src="parabutton.png"
-					alt="Old-web Style Button for paralogue.org"
-					height="31"
-					width="88"
-				/></a
-			>
-			<a
-				href="https://www.himawari.fun/"
-				rel="external"
-				title="~meri's Website"
-				class="button"
-				><img
-					src="himawaributton.png"
-					alt="Old-web Style Button for himawari.fun"
-					height="31"
-					width="88"
-				/></a
-			>
-		</p>
+		<footer>
+			<img src="medicine.png" alt="Medicine is yummy!!!!" />
+		</footer>
 	</main>
 </div>
 
@@ -237,6 +188,14 @@
 		position: sticky;
 		top: 0;
 		padding-top: 1rem;
+		overflow-y: scroll;
+	}
+
+	.buttons {
+		margin-top: 1rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
 	}
 
 	.button {
@@ -246,4 +205,21 @@
 	.button img {
 		image-rendering: pixelated;
 	}
+
+	footer {
+		margin: 3rem 0;
+	}
+
+	footer img {
+		display: block;
+		max-width: 22rem;
+		height: auto;
+		margin: 0 auto;
+	}
+
+	/* footer :any-link {
+		font-size: 0.8em;
+		float: right;
+		color: inherit;
+	} */
 </style>
