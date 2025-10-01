@@ -194,7 +194,6 @@
 		position: sticky;
 		top: 0;
 		padding-top: 1rem;
-		overflow-y: scroll;
 	}
 
 	.buttons {
