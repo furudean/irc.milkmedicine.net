@@ -217,7 +217,7 @@
 
 	footer img {
 		display: block;
-		max-width: 22rem;
+		max-width: 24rem;
 		height: auto;
 		margin: 0 auto;
 	}
