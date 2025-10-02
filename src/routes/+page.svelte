@@ -153,7 +153,7 @@
 		padding: 0 1em;
 	}
 
-	@media (width > 85ch) {
+	@media (width > 48rem) {
 		.wrapper {
 			gap: 3rem;
 			grid-template-columns: 1fr 2fr;
