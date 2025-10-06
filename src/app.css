@@ -75,9 +75,9 @@ pre code {
 code {
 	font-family: 'Fantasque Sans Mono', monospace;
 	font-size: 0.9em;
-	border: 1px solid #dfdfdf;
+	border: 1px solid #cbcbcbff;
 	padding: 1px 2px;
-	border-radius: 4px;
+	border-radius: 3px;
 }
 
 p {
@@ -99,9 +99,10 @@ blockquote {
 	margin: 0;
 	margin-top: 1.5rem;
 	padding-left: 1rem;
-	border-left: 2px solid #dfdfdf;
-	color: #444;
+	border-left: 2px solid currentColor;
+	color: inherit;
 	line-height: 1.5;
+	font-style: italic;
 }
 
 abbr {
@@ -136,20 +137,19 @@ hr {
 
 @media (prefers-color-scheme: dark) {
 	body {
-		background-color: #0c0f0b;
-		color: #e1dcedff;
+		background-color: #0a0c09;
+		color: #cdc5e1;
 	}
 
 	a {
-		color: #027cffff;
+		color: #1b97ff;
 	}
 
 	a:visited {
-		color: hsla(288, 100%, 72%, 1);
+		color: #e068ff;
 	}
 
-	blockquote {
-		border-color: #444;
-		color: #bbb;
+	code {
+		border-color: #393e40;
 	}
 }
