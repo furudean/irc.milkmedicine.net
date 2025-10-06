@@ -20,6 +20,19 @@
 			<Ascii status={data.status}></Ascii>
 			<div class="buttons">
 				<a
+					href="https://webchain.milkmedicine.net/?node=irc.milkmedicine.net_"
+					rel="external"
+					title="View this site on the milkmedicine webchain"
+					class="button"
+				>
+					<img
+						src="https://webchain.milkmedicine.net/button.png"
+						height="31"
+						width="88"
+						alt="Old-web style button for webchain.milkmedicine.net"
+					/>
+				</a>
+				<a
 					href="https://paralogue.org"
 					rel="external"
 					title="Our sister site, paralogue.org"
@@ -132,7 +145,7 @@
 			pretty advanced to set up and use, so I wouldn't recommend it for beginners.
 		</p>
 		<footer>
-			<img src="medicine.png" alt="Medicine is yummy!!!!" />
+			<img src="medicine.png" alt="Medicine is yummy!!!!" height="757" width="995" />
 			<p>
 				<a
 					href="https://x.com/NES_Ghost/status/1973016819087864027"
