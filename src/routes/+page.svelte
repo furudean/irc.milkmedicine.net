@@ -145,13 +145,15 @@
 			pretty advanced to set up and use, so I wouldn't recommend it for beginners.
 		</p>
 		<footer>
-			<img src="medicine.png" alt="Medicine is yummy!!!!" height="757" width="995" />
-			<p>
-				<a
-					href="https://x.com/NES_Ghost/status/1973016819087864027"
-					rel="external noreferrer">source</a
-				>
-			</p>
+			<div class="medicine">
+				<img src="medicine.png" alt="Medicine is yummy!!!!" height="757" width="995" />
+				<p>
+					<a
+						href="https://x.com/NES_Ghost/status/1973016819087864027"
+						rel="external noreferrer">[img source]</a
+					>
+				</p>
+			</div>
 		</footer>
 	</main>
 </div>
@@ -230,14 +232,18 @@
 
 	footer img {
 		display: block;
-		max-width: 24rem;
+		max-width: 100%;
 		height: auto;
+	}
+
+	footer .medicine {
+		max-width: 24rem;
 		margin: 0 auto;
 	}
 
 	footer p {
-		text-align: center;
 		font-size: 0.8rem;
+		text-align: right;
 	}
 
 	footer :any-link {
