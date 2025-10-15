@@ -102,8 +102,10 @@
 			<abbr title="Sometimes called secure connection, or SSL">TLS</abbr>
 		</p>
 		<p>
-			You may also connect through our
-			<a href="/gamja" data-sveltekit-reload>web client</a>. After connecting, join
+			<b
+				>You may also connect through our
+				<a href="/gamja" data-sveltekit-reload>web client</a></b
+			>. After connecting, join
 			<code>#lounge</code> and say hi.
 		</p>
 		<p>
