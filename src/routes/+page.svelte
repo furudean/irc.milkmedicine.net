@@ -8,7 +8,7 @@
 	const title = 'milkmedicine IRC'
 	const description =
 		'milkmedicine is an IRC network for anime, tech, music, art, programming & internet obscura'
-	const medicine_url = new URL('/medicine.png', page.url.href).href
+	const medicine_url = new URL('/medicine.webp', page.url.href).href
 </script>
 
 <svelte:head>
@@ -161,7 +161,7 @@
 		</p>
 		<footer>
 			<div class="medicine">
-				<img src="medicine.png" alt="Medicine is yummy!!!!" height="757" width="995" />
+				<img src="/medicine.webp" alt="Medicine is yummy!!!!" height="757" width="995" />
 				<p>
 					<a
 						href="https://x.com/NES_Ghost/status/1973016819087864027"
