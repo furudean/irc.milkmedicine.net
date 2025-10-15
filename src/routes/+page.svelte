@@ -93,7 +93,7 @@
 		</p>
 
 		<h2>I want to join</h2>
-		<p style="border: 1px solid currentColor; padding: 0.5em;">
+		<p style="border: double currentColor; padding: 0.5em;">
 			Connect to address
 			<a href="ircs://irc.milkmedicine.net:6697" data-sveltekit-reload
 				>irc.milkmedicine.net</a
