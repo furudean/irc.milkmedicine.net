@@ -5,20 +5,24 @@
 	/** @type {import('./$types').PageProps} */
 	let { data } = $props()
 
+	const title = 'milkmedicine IRC'
+	const description =
+		'milkmedicine is an IRC network for anime, tech, music, art, programming & internet obscura'
 	const medicine_url = new URL('/medicine.png', page.url.href).href
 </script>
 
 <svelte:head>
-	<title>milkmedicine IRC</title>
-	<meta
-		name="description"
-		content="milkmedicine is an IRC network for anime, tech, music, art, programming & internet obscura"
-	/>
+	<title>{title}</title>
+	<meta name="description" content={description} />
 	<meta name="theme-color" content="#007bff" />
 
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
 	<meta property="og:image" content={medicine_url} />
 
 	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={medicine_url} />
 </svelte:head>
 
