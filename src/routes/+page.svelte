@@ -1,8 +1,11 @@
 <script>
+	import { page } from '$app/state'
 	import Ascii from './Ascii.svelte'
 
 	/** @type {import('./$types').PageProps} */
 	let { data } = $props()
+
+	const medicine_url = new URL('/medicine.png', page.url.href).href
 </script>
 
 <svelte:head>
@@ -12,6 +15,11 @@
 		content="milkmedicine is an IRC network for anime, tech, music, art, programming & internet obscura"
 	/>
 	<meta name="theme-color" content="#007bff" />
+
+	<meta property="og:image" content={medicine_url} />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content={medicine_url} />
 </svelte:head>
 
 <div class="wrapper">
@@ -38,7 +46,7 @@
 					title="Our sister site, paralogue.org"
 					class="button"
 					><img
-						src="parabutton.png"
+						src="https://paralogue.org/images/parabutton.png"
 						alt="Old-web Style Button for paralogue.org"
 						height="31"
 						width="88"
@@ -50,7 +58,7 @@
 					title="~meri's Website"
 					class="button"
 					><img
-						src="himawaributton.png"
+						src="https://www.himawari.fun/himawaributton.png"
 						alt="Old-web Style Button for himawari.fun"
 						height="31"
 						width="88"
@@ -89,7 +97,11 @@
 			on port 6697, using
 			<abbr title="Sometimes called secure connection, or SSL">TLS</abbr>
 		</p>
-		<p>After connecting, <code>/join #lounge</code> and say hi.</p>
+		<p>
+			You may also connect through our
+			<a href="/gamja" data-sveltekit-reload>web client</a>. After connecting, join
+			<code>#lounge</code> and say hi.
+		</p>
 		<p>
 			Consult your client's manual if unsure how to connect with TLS. If you connect
 			without it, your connection will be rejected.
@@ -98,8 +110,7 @@
 			Not sure what client to use? We have a list of <a href="#client-recommendation"
 				>IRC client recommendations</a
 			>
-			below. You may also connect through our
-			<a href="/gamja" data-sveltekit-reload>web client</a>.
+			below.
 		</p>
 		<p>
 			If you are completely new to IRC you may find <a
