@@ -67,3 +67,4 @@ Every morning. Oats breakfast. No exceptions
 Fish version: miltmedicine
 git commit -m "fixed everything (hopefully)"
 ily in the tui
+Silly shrine maiden, your two-colored powers are a mere twenty-eight-point-five-seven-one-four percent as powerful as mine!
