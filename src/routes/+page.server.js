@@ -46,7 +46,7 @@ export const load = async ({ fetch }) => {
 	}
 
 	/**
-	 * @type {Array<{name: string, topic: string, users: number}>}
+	 * @type {Array<{name: string, topic: string, users: number, is_registered: boolean}>}
 	 */
 	const channels = await fetch('/channels.json').then((res) => res.json())
 
