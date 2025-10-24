@@ -175,7 +175,7 @@
 	}
 
 	summary {
-		line-height: 1.1;
+		line-height: inherit;
 	}
 
 	summary > pre {
