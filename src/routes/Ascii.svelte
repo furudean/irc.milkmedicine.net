@@ -50,8 +50,6 @@
 	function chunked_text(text) {
 		const lines = text.split('\n')
 		const chunks = lines.flatMap((line) => {
-			// Fill any line that is exactly '---' with '-' to the full line_length, prefixed with '> -'
-			if (line.trim() === '---') return ['> ' + '-'.repeat(line_length)]
 			// if line is empty, preserve it
 			if (line === '') return ['']
 			const chunks = []
@@ -71,12 +69,10 @@
 			chunks
 				.map((chunk) => {
 					if (chunk === '') return '>'
-					// If the chunk is a full line of '-' with '> -' prefix, don't add another prefix
-					if (/^> -+$/.test(chunk) && chunk.length === line_length + 2) return chunk
 					return '> ' + chunk
 				})
-				// Linkify each line except for lines that are just the horizontal rule
-				.map((line) => (/^> -+$/.test(line) ? line : linkify(line)))
+				// Linkify each line
+				.map((line) => linkify(line))
 				.join('\n')
 		)
 	}
