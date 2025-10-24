@@ -7,7 +7,7 @@
 
 	const filtered_channels = $derived(channels.filter((channel) => channel.is_registered))
 
-	let line_length = $state(39)
+	let line_length = $state(45)
 
 	/** @type {HTMLPreElement} */
 	let pre_element
