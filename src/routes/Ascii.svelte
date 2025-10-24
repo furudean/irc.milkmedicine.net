@@ -118,7 +118,7 @@
 				}
 				result += '\n\n'
 			}
-			result = result.slice(0, -1)
+			result = result.slice(0, -2)
 			return result
 		} else {
 			return ''
@@ -127,7 +127,7 @@
 
 	const bottom_text = $derived.by(() => {
 		if (!status) return 'could not fetch status :-('
-		let result = `\nThe server has been up since `
+		let result = `The server has been up since `
 		result += `${locale.format(new Date(status.start_time))}.`
 		result += '\n\n'
 		result += `Running on Ergo ${status.version} (#${status.commit.slice(0, 8)}), `
