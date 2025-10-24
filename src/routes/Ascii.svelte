@@ -191,6 +191,5 @@
 
 	pre :global(a) {
 		color: inherit;
-		text-decoration: dotted;
 	}
 </style>
