@@ -48,33 +48,34 @@
 	 * @return {string}
 	 */
 	function chunked_text(text) {
+		const strip_tags = (/** @type {string} */ str) => str.replace(/<[^>]*>/g, '')
 		const lines = text.split('\n')
-		const chunks = lines.flatMap((line) => {
-			// if line is empty, preserve it
-			if (line === '') return ['']
-			const chunks = []
+		const result_chunks = []
+
+		for (const line of lines) {
+			if (line === '') {
+				result_chunks.push('')
+				continue
+			}
+			const words = line.split(' ')
 			let current_line = ''
-			for (const word of line.split(' ')) {
-				if ((current_line + (current_line ? ' ' : '') + word).length > line_length) {
-					if (current_line) chunks.push(current_line)
+			for (let i = 0; i < words.length; i++) {
+				const word = words[i]
+				const test_line = current_line ? current_line + ' ' + word : word
+				if (strip_tags(test_line).length > line_length) {
+					if (current_line) result_chunks.push(current_line)
 					current_line = word
 				} else {
-					current_line += (current_line ? ' ' : '') + word
+					current_line = test_line
 				}
 			}
-			if (current_line) chunks.push(current_line)
-			return chunks
-		})
-		return (
-			chunks
-				.map((chunk) => {
-					if (chunk === '') return '>'
-					return '> ' + chunk
-				})
-				// Linkify each line
-				.map((line) => linkify(line))
-				.join('\n')
-		)
+			if (current_line) result_chunks.push(current_line)
+		}
+
+		return result_chunks
+			.map((chunk) => (chunk === '' ? '>' : '> ' + chunk))
+			.map(linkify)
+			.join('\n')
 	}
 
 	function update_line_length() {
