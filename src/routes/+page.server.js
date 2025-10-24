@@ -45,8 +45,14 @@ export const load = async ({ fetch }) => {
 		console.warn('ERGO_API_AUTH_TOKEN not set, skipping ircd status fetch')
 	}
 
+	/**
+	 * @type {Array<{name: string, topic: string, users: number}>}
+	 */
+	const channels = await fetch('/channels.json').then((res) => res.json())
+
 	return {
 		motd: get_motd(),
-		status
+		status,
+		channels
 	}
 }

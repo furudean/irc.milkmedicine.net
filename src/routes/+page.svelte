@@ -28,47 +28,33 @@
 
 <div class="wrapper">
 	<aside>
-		<div class="aside-inner">
-			<Ascii status={data.status}></Ascii>
-			<div class="buttons">
-				<a
-					href="https://webchain.milkmedicine.net/?node=irc.milkmedicine.net_"
-					rel="external"
-					title="View this site on the milkmedicine webchain"
-					class="button"
-				>
-					<img
-						src="https://webchain.milkmedicine.net/button.png"
-						height="31"
-						width="88"
-						alt="Old-web style button for webchain.milkmedicine.net"
-					/>
-				</a>
-				<a
-					href="https://paralogue.org"
-					rel="external"
-					title="Our sister site, paralogue.org"
-					class="button"
-					><img
-						src="https://paralogue.org/images/parabutton.png"
-						alt="Old-web Style Button for paralogue.org"
-						height="31"
-						width="88"
-					/></a
-				>
-				<a
-					href="https://www.himawari.fun/"
-					rel="external"
-					title="~meri's Website"
-					class="button"
-					><img
-						src="https://www.himawari.fun/himawaributton.png"
-						alt="Old-web Style Button for himawari.fun"
-						height="31"
-						width="88"
-					/></a
-				>
-			</div>
+		<Ascii status={data.status} channels={data.channels}></Ascii>
+		<div class="buttons">
+			<a
+				href="https://webchain.milkmedicine.net/?node=irc.milkmedicine.net_"
+				rel="external"
+				title="View this site on the milkmedicine webchain"
+				class="button"
+			>
+				<img
+					src="https://webchain.milkmedicine.net/button.png"
+					height="31"
+					width="88"
+					alt="Old-web style button for webchain.milkmedicine.net"
+				/>
+			</a>
+			<a
+				href="https://paralogue.org"
+				rel="external"
+				title="Our sister site, paralogue.org"
+				class="button"
+				><img
+					src="https://paralogue.org/images/parabutton.png"
+					alt="Old-web Style Button for paralogue.org"
+					height="31"
+					width="88"
+				/></a
+			>
 		</div>
 	</aside>
 
@@ -181,15 +167,23 @@
 		grid-template-areas:
 			'main'
 			'sidebar';
-		max-width: 85ch;
+		max-width: 90ch;
 		padding: 0 1em;
 	}
 
 	@media (width > 48rem) {
 		.wrapper {
-			gap: 3rem;
-			grid-template-columns: 1fr 2fr;
+			gap: 1rem;
+			grid-template-columns: 2fr 3fr;
 			grid-template-areas: 'sidebar main';
+		}
+
+		aside {
+			position: sticky;
+			top: 0;
+			padding: 1rem 0;
+			max-height: 100vh;
+			overflow-y: auto;
 		}
 	}
 
@@ -220,12 +214,7 @@
 
 	aside {
 		grid-area: 'sidebar';
-	}
-
-	.aside-inner {
-		position: sticky;
-		top: 0;
-		padding-top: 1rem;
+		box-sizing: border-box;
 	}
 
 	.buttons {

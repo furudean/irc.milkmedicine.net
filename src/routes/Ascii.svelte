@@ -2,8 +2,10 @@
 	import { onMount } from 'svelte'
 	import ascii from './ascii.txt?raw'
 
-	/** @type {{ status: import("./$types").PageData['status'] }} */
-	let { status } = $props()
+	/** @type {{ status: import("./$types").PageData['status'], channels: import("./$types").PageData['channels'] }} */
+	let { status, channels } = $props()
+
+	const filtered_channels = $derived(channels.filter((channel) => channel.is_registered))
 
 	let line_length = $state(39)
 
@@ -28,6 +30,57 @@
 	/** @type {(n: number) => string} */
 	const numeric = (n) => n.toLocaleString('en-US')
 
+	/**
+	 * Converts URLs in a string to HTML anchor tags.
+	 * @param {string} text
+	 * @returns {string}
+	 */
+	function linkify(text) {
+		const urlRegex = /((https?:\/\/|www\.)[^\s<]+)/g
+		return text.replace(urlRegex, (url) => {
+			const href = url.startsWith('http') ? url : 'http://' + url
+			return `<a href="${href}" rel="noopener noreferrer">${url}</a>`
+		})
+	}
+
+	/**
+	 * @param {string} text
+	 * @return {string}
+	 */
+	function chunked_text(text) {
+		const lines = text.split('\n')
+		const chunks = lines.flatMap((line) => {
+			// Fill any line that is exactly '---' with '-' to the full line_length, prefixed with '> -'
+			if (line.trim() === '---') return ['> ' + '-'.repeat(line_length)]
+			// if line is empty, preserve it
+			if (line === '') return ['']
+			const chunks = []
+			let current_line = ''
+			for (const word of line.split(' ')) {
+				if ((current_line + (current_line ? ' ' : '') + word).length > line_length) {
+					if (current_line) chunks.push(current_line)
+					current_line = word
+				} else {
+					current_line += (current_line ? ' ' : '') + word
+				}
+			}
+			if (current_line) chunks.push(current_line)
+			return chunks
+		})
+		return (
+			chunks
+				.map((chunk) => {
+					if (chunk === '') return '>'
+					// If the chunk is a full line of '-' with '> -' prefix, don't add another prefix
+					if (/^> -+$/.test(chunk) && chunk.length === line_length + 2) return chunk
+					return '> ' + chunk
+				})
+				// Linkify each line except for lines that are just the horizontal rule
+				.map((line) => (/^> -+$/.test(line) ? line : linkify(line)))
+				.join('\n')
+		)
+	}
+
 	function update_line_length() {
 		const context = document.createElement('canvas')?.getContext('2d')
 
@@ -47,17 +100,40 @@
 		if (status) {
 			let result = `There are ${numeric(status.users.total)}/${numeric(status.users.max)} users `
 			result += `online in ${numeric(status.channels)} channels.`
-			result += '\n\n'
-			result += `The server has been up since `
-			result += `${locale.format(new Date(status.start_time))}.`
-			result += '\n\n'
-			result += `Running on Ergo ${status.version} (#${status.commit.slice(0, 8)}), `
-			result += `compiled using ${status.go_version}.`
 			result += '\n'
+
 			return result
 		} else {
 			return 'could not fetch server status :-(\n'
 		}
+	})
+
+	const channel_text = $derived.by(() => {
+		if (filtered_channels) {
+			let result = ''
+			for (const channel of filtered_channels) {
+				result += `<b>${channel.name}</b> (${numeric(channel.users)} users)`
+				if (channel.topic) {
+					result += ` -- ${channel.topic}`
+				}
+				result += '\n\n'
+			}
+			result = result.slice(0, -1)
+			return result
+		} else {
+			return ''
+		}
+	})
+
+	const bottom_text = $derived.by(() => {
+		if (!status) return 'could not fetch status :-('
+		let result = `\nThe server has been up since `
+		result += `${locale.format(new Date(status.start_time))}.`
+		result += '\n\n'
+		result += `Running on Ergo ${status.version} (#${status.commit.slice(0, 8)}), `
+		result += `compiled using ${status.go_version}.`
+		result += '\n'
+		return result
 	})
 
 	onMount(() => {
@@ -72,34 +148,8 @@
 			resize_observer.disconnect()
 		}
 	})
-
-	const formatted_info = $derived.by(() => {
-		const lines = info.split('\n')
-		const chunks = lines.flatMap((line) => {
-			// if line is empty, preserve it
-			if (line === '') return ['']
-			const chunks = []
-			let current_line = ''
-			for (const word of line.split(' ')) {
-				if ((current_line + (current_line ? ' ' : '') + word).length > line_length) {
-					// if adding the word would exceed the line length, push current_line
-					// and start new
-					if (current_line) chunks.push(current_line)
-					current_line = word
-				} else {
-					// else, add the word to the current line
-					current_line += (current_line ? ' ' : '') + word
-				}
-			}
-			if (current_line) chunks.push(current_line)
-			return chunks
-		})
-		return chunks.map((chunk) => (chunk === '' ? '>' : '> ' + chunk)).join('\n')
-	})
 </script>
 
-<h1 class="screenreader">irc.milkmedicine.net</h1>
-<p class="screenreader">prescribed for any and all ailments</p>
 <pre aria-hidden="true" bind:this={pre_element}><!-- prettier-ignore -->
 {reisen}
 >
@@ -108,8 +158,17 @@
 		>~ prescribed for any and all ailments ~</span
 	>
 >
-{formatted_info}
 </pre>
+<h1 class="screenreader">irc.milkmedicine.net</h1>
+<p class="screenreader">prescribed for any and all ailments</p>
+<pre aria-hidden="true" bind:this={pre_element}>
+{@html chunked_text(info)}</pre>
+<pre>{@html chunked_text(bottom_text)}</pre>
+<details>
+	<summary><pre>*** Registered channels ***</pre></summary>
+	<pre>{@html chunked_text(channel_text)}</pre>
+</details>
+<pre>></pre>
 
 <style>
 	pre {
@@ -117,5 +176,22 @@
 		overflow-wrap: break-word;
 		max-width: 100%;
 		overflow-x: none;
+	}
+
+	summary > pre {
+		/* font-style: italic; */
+		display: inline;
+		line-height: 1;
+		margin: 0;
+	}
+
+	details {
+		border-top: 1px dotted currentColor;
+		border-bottom: 1px dotted currentColor;
+	}
+
+	pre :global(a) {
+		color: inherit;
+		text-decoration: underline;
 	}
 </style>
