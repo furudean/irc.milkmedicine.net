@@ -174,10 +174,13 @@
 		overflow-x: none;
 	}
 
+	summary {
+		line-height: 1.1;
+	}
+
 	summary > pre {
 		/* font-style: italic; */
 		display: inline;
-		line-height: 1;
 		margin: 0;
 	}
 
@@ -188,6 +191,6 @@
 
 	pre :global(a) {
 		color: inherit;
-		text-decoration: underline;
+		text-decoration: dotted;
 	}
 </style>
