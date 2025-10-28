@@ -163,7 +163,9 @@
 <pre>{@html chunked_text(bottom_text)}</pre>
 <details>
 	<summary><pre>*** Registered channels ***</pre></summary>
-	<pre>{@html chunked_text(channel_text)}</pre>
+	<pre>{@html chunked_text(channel_text)}
+>
+> *** End of LIST ***</pre>
 </details>
 <pre>></pre>
 
