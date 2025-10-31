@@ -48,7 +48,17 @@ export const load = async ({ fetch }) => {
 	/**
 	 * @type {Array<{name: string, topic: string, users: number, is_registered: boolean}>}
 	 */
-	const channels = await fetch('/channels.json').then((res) => res.json())
+	let channels = []
+	try {
+		const response = await fetch('/channels.json')
+		if (!response.ok) {
+			console.error('Failed to fetch channels:', response.status, await response.text())
+		} else {
+			channels = await response.json()
+		}
+	} catch (err) {
+		console.error('error fetching channels:', err)
+	}
 
 	return {
 		motd: get_motd(),

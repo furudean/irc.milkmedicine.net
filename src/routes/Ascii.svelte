@@ -5,7 +5,7 @@
 	/** @type {{ status: import("./$types").PageData['status'], channels: import("./$types").PageData['channels'] }} */
 	let { status, channels } = $props()
 
-	const filtered_channels = $derived(channels.filter((channel) => channel.is_registered))
+	const filtered_channels = $derived(channels?.filter((channel) => channel.is_registered))
 
 	let line_length = $state(45)
 
@@ -93,7 +93,7 @@
 		line_length = 39
 	}
 
-	const info = $derived.by(() => {
+	const user_status = $derived.by(() => {
 		if (status) {
 			let result = `There are ${numeric(status.users.total)}/${numeric(status.users.max)} users `
 			result += `online in ${numeric(status.channels)} channels.`
@@ -104,25 +104,7 @@
 			return 'could not fetch server status :-(\n'
 		}
 	})
-
-	const channel_text = $derived.by(() => {
-		if (filtered_channels) {
-			let result = ''
-			for (const channel of filtered_channels) {
-				result += `<b>${channel.name}</b> (${numeric(channel.users)} users)`
-				if (channel.topic) {
-					result += ` -- ${channel.topic}`
-				}
-				result += '\n\n'
-			}
-			result = result.slice(0, -2)
-			return result
-		} else {
-			return ''
-		}
-	})
-
-	const bottom_text = $derived.by(() => {
+	const server_status_text = $derived.by(() => {
 		if (!status) return 'could not fetch status :-('
 		let result = `The server has been up since `
 		result += `${locale.format(new Date(status.start_time))}.`
@@ -130,6 +112,18 @@
 		result += `Running on Ergo ${status.version} (#${status.commit.slice(0, 8)}), `
 		result += `compiled using ${status.go_version}.`
 		result += '\n'
+		return result
+	})
+	const channels_status = $derived.by(() => {
+		let result = ''
+		for (const channel of filtered_channels ?? []) {
+			result += `<b>${channel.name}</b> (${numeric(channel.users)} users)`
+			if (channel.topic) {
+				result += ` -- ${channel.topic}`
+			}
+			result += '\n\n'
+		}
+		result = result.slice(0, -2)
 		return result
 	})
 
@@ -159,14 +153,15 @@
 <h1 class="screenreader">irc.milkmedicine.net</h1>
 <p class="screenreader">prescribed for any and all ailments</p>
 <pre aria-hidden="true" bind:this={pre_element}>
-{@html chunked_text(info)}</pre>
-<pre>{@html chunked_text(bottom_text)}</pre>
-<details>
-	<summary><pre>*** Registered channels ***</pre></summary>
-	<pre>{@html chunked_text(channel_text)}
->
-> *** End of LIST ***</pre>
-</details>
+{@html chunked_text(user_status)}</pre>
+<pre>{@html chunked_text(server_status_text)}</pre>
+{#if channels_status}
+	<details>
+		<summary><pre>*** Registered channels ***</pre></summary>
+		<pre>{@html chunked_text(channels_status)}</pre>
+		<pre> *** End of LIST ***</pre>
+	</details>
+{/if}
 <pre>></pre>
 
 <style>
