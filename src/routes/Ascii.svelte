@@ -13,10 +13,12 @@
 	/** @type {HTMLPreElement} */
 	let pre_element
 
-	const reisen = ascii
-		.split('\n')
-		.map((line) => '> ' + line)
-		.join('\n')
+	const reisen =
+		'>\n' +
+		ascii
+			.split('\n')
+			.map((line) => '> ' + line)
+			.join('\n')
 
 	const locale = Intl.DateTimeFormat('en-US', {
 		year: 'numeric',
@@ -93,26 +95,21 @@
 		// fallback
 		line_length = 39
 	}
+	const server_status = $derived.by(() => {
+		let result = ''
 
-	const user_status = $derived.by(() => {
 		if (status) {
-			let result = `There are ${numeric(status.users.total)}/${numeric(status.users.max)} users `
-			result += `online in ${numeric(status.channels)} channels.`
-			result += '\n'
+			result += `There are ${numeric(status.users.total)}/${numeric(status.users.max)} users `
+			result += `online in ${numeric(status.channels)} channels.\n\n`
 
-			return result
+			result += `The server has been up since `
+			result += `${locale.format(new Date(status.start_time))}.\n\n`
+			result += `Running on Ergo ${status.version} (#${status.commit.slice(0, 8)}), `
+			result += `compiled using ${status.go_version}.\n`
 		} else {
-			return 'could not fetch server status :-(\n'
+			result += 'could not fetch server status :-(\n'
 		}
-	})
-	const server_status_text = $derived.by(() => {
-		if (!status) return 'could not fetch status :-('
-		let result = `The server has been up since `
-		result += `${locale.format(new Date(status.start_time))}.`
-		result += '\n\n'
-		result += `Running on Ergo ${status.version} (#${status.commit.slice(0, 8)}), `
-		result += `compiled using ${status.go_version}.`
-		result += '\n'
+
 		return result
 	})
 	const channels_status = $derived.by(() => {
@@ -126,7 +123,7 @@
 			}
 			result += '\n\n'
 		}
-		result = result.slice(0, -2)
+		result = result.slice(0, -1)
 		return result
 	})
 
@@ -155,8 +152,9 @@
 </pre>
 <h1 class="screenreader">irc.milkmedicine.net</h1>
 <p class="screenreader">prescribed for any and all ailments</p>
-<pre title="Server status" bind:this={pre_element}>{@html chunked_text(user_status)}
-{@html chunked_text(server_status_text)}</pre>
+<pre title="Server status" bind:this={pre_element}>{@html chunked_text(
+		server_status
+	)}</pre>
 {#if channels_status}
 	<details>
 		<summary>
@@ -164,17 +162,17 @@
 			<span class="screenreader">Registered channels</span>
 		</summary>
 		<pre>{@html chunked_text(channels_status)}</pre>
-		<pre> *** End of LIST ***</pre>
+		<pre>> *** End of LIST ***</pre>
 	</details>
 {/if}
 <pre>></pre>
 
 <style>
 	pre {
-		word-wrap: break-word;
-		overflow-wrap: break-word;
+		/* word-wrap: break-word; */
+		/* overflow-wrap: break-word; */
 		max-width: 100%;
-		overflow-x: none;
+		/* overflow-x: none; */
 	}
 
 	summary {

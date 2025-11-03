@@ -33,10 +33,11 @@ export const load = async ({ fetch }) => {
 					Authorization: 'Bearer ' + ERGO_API_AUTH_TOKEN
 				}
 			})
-			if (!response.ok) {
+			if (response.ok) {
+				status = await response.json()
+			} else {
 				console.error('fetch ircd status failed:', response.status, await response.text())
 			}
-			status = await response.json()
 		} catch (err) {
 			console.error('failed to fetch ergo status:', err)
 		}
