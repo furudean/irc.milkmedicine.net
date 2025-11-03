@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte'
 	import ascii from './ascii.txt?raw'
+	import DOMPurify from 'isomorphic-dompurify'
 
 	/** @type {{ status: import("./$types").PageData['status'], channels: import("./$types").PageData['channels'] }} */
 	let { status, channels } = $props()
@@ -119,7 +120,9 @@
 		for (const channel of filtered_channels ?? []) {
 			result += `<b>${channel.name}</b> (${numeric(channel.users)} users)`
 			if (channel.topic) {
-				result += ` -- ${channel.topic}`
+				result += ` -- ${DOMPurify.sanitize(channel.topic, {
+					ALLOWED_TAGS: []
+				})}`
 			}
 			result += '\n\n'
 		}

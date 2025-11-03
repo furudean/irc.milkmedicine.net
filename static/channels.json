@@ -1,74 +1,26 @@
 [
-  {
-    "name": "#lounge",
-    "users": 22,
-    "topic": "computer ceo daoist immortal dark wizard mage girl spells hq",
-    "is_registered": true
-  },
-  {
-    "name": "#sotd",
-    "users": 10,
-    "topic": "song of the day - post a song you liked today | browse at https://satsukitane.natu.moe/sotd/",
-    "is_registered": true
-  },
-  {
-    "name": "#paralogue.org",
-    "users": 10,
-    "topic": "anisotropica: parallel dream world - join at paralogue.org",
-    "is_registered": true
-  },
-  {
-    "name": "#modtracker",
-    "users": 7,
-    "topic": "mod tracker music sharing and discussion",
-    "is_registered": true
-  },
-  {
-    "name": "#webchain",
-    "users": 7,
-    "topic": "a distributed webring for friends and enemies - https://webchain.milkmedicine.net/",
-    "is_registered": true
-  },
-  {
-    "name": "#achievements",
-    "users": 4,
-    "topic": null,
-    "is_registered": false
-  },
-  {
-    "name": "#polka-dot",
-    "users": 4,
-    "topic": null,
-    "is_registered": false
-  },
-  {
-    "name": "#thursday",
-    "users": 3,
-    "topic": null,
-    "is_registered": false
-  },
-  {
-    "name": "#dream",
-    "users": 3,
-    "topic": null,
-    "is_registered": false
-  },
-  {
-    "name": "#milk",
-    "users": 2,
-    "topic": null,
-    "is_registered": false
-  },
-  {
-    "name": "#noenglish",
-    "users": 2,
-    "topic": "don't speak english in here (experiment)",
-    "is_registered": false
-  },
-  {
-    "name": "#fear",
-    "users": 1,
-    "topic": null,
-    "is_registered": false
-  }
+	{
+		"name": "#smile",
+		"users": 10,
+		"topic": "happy smiling",
+		"is_registered": true
+	},
+	{
+		"name": "#evil",
+		"users": 5,
+		"topic": "<script>alert(\"evil\")</script>",
+		"is_registered": true
+	},
+	{
+		"name": "#paralogue",
+		"users": 3,
+		"topic": "my link https://paralogue.org/",
+		"is_registered": true
+	},
+	{
+		"name": "#fear",
+		"users": 1,
+		"topic": null,
+		"is_registered": false
+	}
 ]
