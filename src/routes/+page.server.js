@@ -35,7 +35,6 @@ export const load = async ({ fetch }) => {
 			})
 			if (!response.ok) {
 				console.error('fetch ircd status failed:', response.status, await response.text())
-				return
 			}
 			status = await response.json()
 		} catch (err) {

@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte'
 	import ascii from './ascii.txt?raw'
-	import DOMPurify from 'isomorphic-dompurify'
+	import { htmlEscape } from 'escape-goat'
 
 	/** @type {{ status: import("./$types").PageData['status'], channels: import("./$types").PageData['channels'] }} */
 	let { status, channels } = $props()
@@ -119,10 +119,10 @@
 		let result = ''
 		for (const channel of filtered_channels ?? []) {
 			result += `<b>${channel.name}</b> (${numeric(channel.users)} users)`
-			if (channel.topic) {
-				result += ` -- ${DOMPurify.sanitize(channel.topic, {
-					ALLOWED_TAGS: []
-				})}`
+			const safe_topic = htmlEscape(channel?.topic ?? '')
+
+			if (safe_topic) {
+				result += ' -- ' + safe_topic
 			}
 			result += '\n\n'
 		}
@@ -144,7 +144,7 @@
 	})
 </script>
 
-<pre aria-hidden="true" bind:this={pre_element}><!-- prettier-ignore -->
+<pre aria-hidden="true">
 {reisen}
 >
 > <b>irc.milkmedicine.net</b>
@@ -155,12 +155,14 @@
 </pre>
 <h1 class="screenreader">irc.milkmedicine.net</h1>
 <p class="screenreader">prescribed for any and all ailments</p>
-<pre aria-hidden="true" bind:this={pre_element}>
-{@html chunked_text(user_status)}</pre>
-<pre>{@html chunked_text(server_status_text)}</pre>
+<pre title="Server status" bind:this={pre_element}>{@html chunked_text(user_status)}
+{@html chunked_text(server_status_text)}</pre>
 {#if channels_status}
 	<details>
-		<summary><pre>*** Registered channels ***</pre></summary>
+		<summary>
+			<pre aria-hidden="true">*** Registered channels ***</pre>
+			<span class="screenreader">Registered channels</span>
+		</summary>
 		<pre>{@html chunked_text(channels_status)}</pre>
 		<pre> *** End of LIST ***</pre>
 	</details>
