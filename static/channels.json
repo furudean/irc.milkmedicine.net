@@ -18,6 +18,12 @@
 		"is_registered": true
 	},
 	{
+		"name": "#aaaaaaaa",
+		"users": 3,
+		"topic": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa a a a a a",
+		"is_registered": true
+	},
+	{
 		"name": "#fear",
 		"users": 1,
 		"topic": null,

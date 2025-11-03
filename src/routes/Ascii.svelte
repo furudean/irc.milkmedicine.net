@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte'
 	import ascii from './ascii.txt?raw'
-	import { htmlEscape } from 'escape-goat'
+	import { htmlEscape, htmlUnescape } from 'escape-goat'
 
 	/** @type {{ status: import("./$types").PageData['status'], channels: import("./$types").PageData['channels'] }} */
 	let { status, channels } = $props()
@@ -47,11 +47,31 @@
 	}
 
 	/**
-	 * @param {string} text
-	 * @return {string}
+	 * Slices a string so that htmlUnescape(str.slice(0, n)) has length <= n.
+	 * @param {string} str
+	 * @param {number} n
 	 */
-	function chunked_text(text) {
-		const strip_tags = (/** @type {string} */ str) => str.replace(/<[^>]*>/g, '')
+	function slice_by_visible(str, n) {
+		let lo = 0,
+			hi = str.length
+		while (lo < hi) {
+			const mid = Math.ceil((lo + hi) / 2)
+			if (htmlUnescape(str.slice(0, mid)).length > n) {
+				hi = mid - 1
+			} else {
+				lo = mid
+			}
+		}
+		return lo
+	}
+
+	/**
+	 * Splits a string into chunks based on line length.
+	 * @param {string} text
+	 * @param {number} max_len
+	 * @returns {string}
+	 */
+	function chunked_text(text, max_len) {
 		const lines = text.split('\n')
 		const result_chunks = []
 
@@ -63,22 +83,31 @@
 			const words = line.split(' ')
 			let current_line = ''
 			for (let i = 0; i < words.length; i++) {
-				const word = words[i]
-				const test_line = current_line ? current_line + ' ' + word : word
-				if (strip_tags(test_line).length > line_length) {
-					if (current_line) result_chunks.push(current_line)
-					current_line = word
-				} else {
-					current_line = test_line
+				let word = words[i]
+				let sep = current_line ? ' ' : ''
+				while (word.length > 0) {
+					const test_line = current_line + sep + word
+					let test_line_visible = htmlUnescape(test_line)
+					if (test_line_visible.length > max_len) {
+						if (current_line) {
+							result_chunks.push(current_line)
+							current_line = ''
+							sep = ''
+						} else {
+							const cut = slice_by_visible(word, max_len)
+							result_chunks.push(word.slice(0, cut))
+							word = word.slice(cut)
+						}
+					} else {
+						current_line = test_line
+						word = ''
+					}
 				}
 			}
 			if (current_line) result_chunks.push(current_line)
 		}
 
-		return result_chunks
-			.map((chunk) => (chunk === '' ? '>' : '> ' + chunk))
-			.map(linkify)
-			.join('\n')
+		return result_chunks.map((chunk) => (chunk === '' ? '>' : '> ' + chunk)).join('\n')
 	}
 
 	function update_line_length() {
@@ -127,6 +156,17 @@
 		return result
 	})
 
+	/**
+	 * Linkifies each line, avoiding splitting inside HTML tags.
+	 * @param {string} text
+	 * @param {number} max_len
+	 * @returns {string}
+	 */
+	function linkify_lines(text, max_len) {
+		const lines = chunked_text(text, max_len).split('\n')
+		return lines.map(linkify).join('\n')
+	}
+
 	onMount(() => {
 		update_line_length()
 
@@ -153,7 +193,8 @@
 <h1 class="screenreader">irc.milkmedicine.net</h1>
 <p class="screenreader">prescribed for any and all ailments</p>
 <pre title="Server status" bind:this={pre_element}>{@html chunked_text(
-		server_status
+		server_status,
+		line_length
 	)}</pre>
 {#if channels_status}
 	<details>
@@ -161,7 +202,7 @@
 			<pre aria-hidden="true">*** Registered channels ***</pre>
 			<span class="screenreader">Registered channels</span>
 		</summary>
-		<pre>{@html chunked_text(channels_status)}</pre>
+		<pre>{@html linkify_lines(channels_status, line_length)}</pre>
 		<pre>> *** End of LIST ***</pre>
 	</details>
 {/if}
