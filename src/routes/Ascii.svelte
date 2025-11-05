@@ -47,26 +47,39 @@
 	}
 
 	/**
-	 * Slices a string so that htmlUnescape(str.slice(0, n)) has length <= n.
+	 * remove simple html tags from a string. this will break on tags with
+	 * attributes, so don't use it for complex html.
+	 * @param {string} str
+	 * @returns {string}
+	 */
+	function strip_simple_html_tags(str) {
+		return str.replace(/<[^>]*>/g, '')
+	}
+
+	/**
+	 * Slices a string so that
+	 * `htmlUnescape(strip_simple_html_tags(str.slice(0, n)))` has length <= `n`.
 	 * @param {string} str
 	 * @param {number} n
 	 */
 	function slice_by_visible(str, n) {
-		let lo = 0,
-			hi = str.length
-		while (lo < hi) {
-			const mid = Math.ceil((lo + hi) / 2)
-			if (htmlUnescape(str.slice(0, mid)).length > n) {
-				hi = mid - 1
+		let low = 0,
+			high = str.length
+		while (low < high) {
+			const mid = Math.ceil((low + high) / 2)
+			const visible = htmlUnescape(strip_simple_html_tags(str.slice(0, mid)))
+			if (visible.length > n) {
+				high = mid - 1
 			} else {
-				lo = mid
+				low = mid
 			}
 		}
-		return lo
+		return low
 	}
 
 	/**
-	 * Splits a string into chunks based on line length.
+	 * Splits a string into chunks based on line length, ignoring HTML tags
+	 * for visible length.
 	 * @param {string} text
 	 * @param {number} max_len
 	 * @returns {string}
@@ -87,7 +100,7 @@
 				let sep = current_line ? ' ' : ''
 				while (word.length > 0) {
 					const test_line = current_line + sep + word
-					let test_line_visible = htmlUnescape(test_line)
+					let test_line_visible = htmlUnescape(strip_simple_html_tags(test_line))
 					if (test_line_visible.length > max_len) {
 						if (current_line) {
 							result_chunks.push(current_line)
