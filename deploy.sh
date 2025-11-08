@@ -8,8 +8,9 @@ npm run build
 rsync -zhave ssh --progress build irc.milkmedicine.net:/home/node
 ssh irc.milkmedicine.net "
     cd /home/node && \
+    systemctl stop milkweb.service && \
     rm -rf irc.milkmedicine.net && \
     mv build irc.milkmedicine.net && \
     chown -R node:node irc.milkmedicine.net && \
-    systemctl restart milkweb.service
+    systemctl start milkweb.service
 "
