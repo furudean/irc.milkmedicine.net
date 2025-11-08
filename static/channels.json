@@ -24,6 +24,12 @@
 		"is_registered": true
 	},
 	{
+		"name": "#lonely",
+		"users": 1,
+		"topic": null,
+		"is_registered": true
+	},
+	{
 		"name": "#fear",
 		"users": 1,
 		"topic": null,

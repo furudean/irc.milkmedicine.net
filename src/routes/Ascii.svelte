@@ -157,11 +157,12 @@
 	const channels_status = $derived.by(() => {
 		let result = ''
 		for (const channel of filtered_channels ?? []) {
-			result += `<b>${channel.name}</b> (${numeric(channel.users)} users)`
-			const safe_topic = htmlEscape(channel?.topic ?? '')
+			result += `<b>${channel.name}</b> `
+			result += `(${numeric(channel.users)} user${channel.users == 1 ? '' : 's'})`
 
+			const safe_topic = htmlEscape(channel?.topic ?? '')
 			if (safe_topic) {
-				result += ' -- ' + safe_topic
+				result += ' -- ' + safe_topic.trim()
 			}
 			result += '\n\n'
 		}
