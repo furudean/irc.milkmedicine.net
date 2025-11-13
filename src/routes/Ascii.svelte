@@ -182,8 +182,6 @@
 	}
 
 	onMount(() => {
-		update_line_length()
-
 		document.fonts.ready.then(update_line_length)
 
 		const resize_observer = new ResizeObserver(update_line_length)
