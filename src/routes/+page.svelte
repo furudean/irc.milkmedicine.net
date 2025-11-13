@@ -121,9 +121,13 @@
 			> for more information on how to use the network.
 		</blockquote>
 		<p>
-			You can register with <code>/msg NickServ register &lt;password&gt;</code>
-			to protect your nickname. You can then use SASL authentication or
-			<code>/msg NickServ identify &lt;password&gt;</code> to log in on future connections.
+			You may register for an account using <code
+				>/msg NickServ register &lt;password&gt; [email]</code
+			>
+			to protect your nickname. After doing this successfully, you can use SASL authentication
+			(preferred) or alternatively,
+			<code>/msg NickServ identify &lt;username&gt; &lt;password&gt;</code> to log in on
+			future connections. You can <code>/msg NickServ help</code> for more information.
 		</p>
 		<p>
 			Chat history may be stored indefinitely in registered channels, though this can be
