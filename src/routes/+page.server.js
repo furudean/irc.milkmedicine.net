@@ -1,5 +1,8 @@
 import { get_motd } from '$lib/motd.server'
 import { ERGO_API_AUTH_TOKEN } from '$env/static/private'
+import { dev } from '$app/environment'
+
+export const csr = dev
 
 /**
  * @typedef {Object} ErgoStatus
