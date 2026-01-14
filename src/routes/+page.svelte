@@ -72,43 +72,50 @@
 			music, art, programming & internet obscura.
 		</p>
 		<p>
-			Social networks can be fun, but they're always asking for more of you. We decided to
-			step away from all that. IRC has no algorithms whispering, no nudging toward
-			engagement, and no data harvesting. It's just conversation— in the way the internet
-			used to dream of itself. Come chat, big sister.
+			Social networks can be fun, but they're always asking for more of you. We wanted to
+			step away from that. IRC has no algorithms, no engagement nudging, and no data
+			harvesting. It's just conversation — in the way the internet used to dream of
+			itself. Come chat, big sister.
 		</p>
 
-		<h2>I want to join</h2>
-		<p style="border: double currentColor; padding: 0.5em;">
-			Connect to address
-			<a href="ircs://irc.milkmedicine.net:6697" data-sveltekit-reload
-				>irc.milkmedicine.net</a
-			>
-			on port 6697, using
-			<abbr title="Sometimes called secure connection, or SSL">TLS</abbr>
-		</p>
+		<h2>Connect</h2>
+
+		<dl>
+			<dt>
+				IRC over <abbr title="Also called SSL or secure connection">TLS</abbr>
+			</dt>
+			<dd>
+				<a href="ircs://irc.milkmedicine.net:6697" target="_blank" data-sveltekit-reload
+					>irc.milkmedicine.net:6697</a
+				>
+			</dd>
+			<dt>IRC over secure WebSocket</dt>
+			<dd>irc.milkmedicine.net/webirc</dd>
+		</dl>
 		<p>
 			<b
-				>You may also connect through our
+				>You may also connect through the
 				<a href="/gamja" data-sveltekit-reload>web client</a></b
 			>. After connecting, join
 			<code>#lounge</code> and say hi.
 		</p>
+		<blockquote>
+			Only TLS connections are accepted. Consult your client's manual if unsure how to
+			connect securely
+		</blockquote>
 		<p>
-			Consult your client's manual if unsure how to connect with TLS. If you connect
-			without it, your connection will be rejected.
+			If you are completely new to IRC you may find <a
+				href="https://libera.chat/guides/basics"
+				rel="external">libera's guide</a
+			>
+			or <a href="https://www.irchelp.org/" rel="external">www.irchelp.com</a> a good resource
+			on the basics.
 		</p>
 		<p>
 			Not sure what client to use? We have a list of <a href="#client-recommendation"
 				>IRC client recommendations</a
 			>
 			below.
-		</p>
-		<p>
-			If you are completely new to IRC you may find <a
-				href="https://www.irchelp.org/"
-				rel="external">www.irchelp.com</a
-			> a good resource on the basics.
 		</p>
 
 		<h2>Good to know</h2>
@@ -265,4 +272,19 @@
 		float: right;
 		color: inherit;
 	} */
+
+	dl {
+		border: 2px double currentColor;
+		padding: 0.5em;
+	}
+
+	dt {
+		font-weight: bold;
+	}
+
+	dd {
+		font-family: 'Fantasque Sans Mono', monospace;
+		margin: 0.25em 0;
+		margin-left: 2em;
+	}
 </style>
