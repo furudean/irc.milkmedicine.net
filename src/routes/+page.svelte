@@ -97,7 +97,7 @@
 		</dl>
 		<p>
 			No insecure connection is provided. Almost all modern clients support TLS today,
-			consult your client's manual if unsure how to.
+			consult your client's manual if you are unsure how to do this.
 		</p>
 		<p>
 			<b
