@@ -67,104 +67,101 @@
 		</section>
 		<p>
 			<span class="fake-h1">milkmedicine</span>
-			is an IRC network, conjured into being by
+			is an IRCv3 network, conjured into being by
 			<a href="https://www.himawari.fun" rel="external">~meri</a> in 2025. We like anime, tech,
 			music, art, programming & internet obscura.
 		</p>
 		<p>
-			Social networks can be fun, but they're always asking for more of you. We wanted to
-			step away from that. IRC has no algorithms, no engagement nudging, and no data
-			harvesting. It's just conversation — in the way the internet used to dream of
-			itself. Come chat, big sister.
+			IRC has no algorithms, engagement nudging or no data harvesting. We are defining
+			community how we like it. The internet used to dream of itself, and now we dream in
+			its hollow husk. Come dream with us, big sister. World domination is at hand.
 		</p>
 
 		<h2>Connect</h2>
-
+		<p>Use one of the supported connection methods to connect from your client:</p>
 		<dl>
 			<dt>
 				IRC over <abbr title="Also called SSL or secure connection">TLS</abbr>
 			</dt>
-			<dd>
-				<a href="ircs://irc.milkmedicine.net:6697" target="_blank" data-sveltekit-reload
-					>irc.milkmedicine.net:6697</a
+			<dd>ircs://irc.milkmedicine.net:6697</dd>
+			<dt>
+				IRC over secure WebSocket <sup
+					><a
+						href="https://ircv3.net/specs/extensions/websocket"
+						title="Link to the draft specification"
+						rel="external">(?)</a
+					></sup
 				>
-			</dd>
-			<dt>IRC over secure WebSocket</dt>
-			<dd>irc.milkmedicine.net/webirc</dd>
+			</dt>
+			<dd>wss://irc.milkmedicine.net/webirc</dd>
 		</dl>
 		<p>
+			No insecure connection is provided. Almost all modern clients support TLS today,
+			consult your client's manual if unsure how to.
+		</p>
+		<p>
 			<b
-				>You may also connect through the
-				<a href="/gamja" data-sveltekit-reload>web client</a></b
-			>. After connecting, join
-			<code>#lounge</code> and say hi.
+				>You may connect through
+				<a href="/gamja" data-sveltekit-reload>the web client Gamja</a></b
+			>, which we provide as a low-friction (and low-feature) alternative.
 		</p>
-		<blockquote>
-			Only TLS connections are accepted. Consult your client's manual if unsure how to
-			connect securely
-		</blockquote>
+
 		<p>
-			If you are completely new to IRC you may find <a
-				href="https://libera.chat/guides/basics"
-				rel="external">libera's guide</a
-			>
-			or <a href="https://www.irchelp.org/" rel="external">www.irchelp.com</a> a good resource
-			on the basics.
-		</p>
-		<p>
-			Not sure what client to use? We have a list of <a href="#client-recommendation"
-				>IRC client recommendations</a
-			>
-			below.
+			If you are completely new to IRC you may find
+			<a href="https://libera.chat/guides/basics" rel="external"
+				>the Libera Chat IRC guide</a
+			> a good introduction.
 		</p>
 
 		<h2>Good to know</h2>
-		<blockquote>
-			milkmedicine IRC runs on <a href="https://ergo.chat/about" rel="external">Ergo</a>.
-			You may want to read the
-			<a
-				href="https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md"
-				rel="external">Ergo user guide</a
-			> for more information on how to use the network.
-		</blockquote>
-		<p>
-			You may register for an account using <code
-				>/msg NickServ register &lt;password&gt; [email]</code
-			>
-			to protect your nickname. After doing this successfully, you can use SASL authentication
-			(preferred) or alternatively,
-			<code>/msg NickServ identify &lt;username&gt; &lt;password&gt;</code> to log in on
-			future connections. You can <code>/msg NickServ help</code> for more information.
-		</p>
-		<p>
-			Chat history may be stored indefinitely in registered channels, though this can be
-			disabled by channel operators. Keep in mind that anything you say in a channel might
-			be seen by anyone who joins, even if they join later.
-		</p>
-
+		<ul>
+			<li>
+				The milkmedicine IRC runs on <a href="https://ergo.chat/about" rel="external"
+					>Ergo</a
+				>. You may want to read the
+				<a
+					href="https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md"
+					rel="external">Ergo user guide</a
+				> for more information about some features that are unique to Ergo, like always-on
+				and chat history.
+			</li>
+			<li>
+				You may register for an account using NickServ to protect your nickname, and then
+				use SASL to authenticate on future connections. Message the NickServ user (<code
+					>/query NickServ</code
+				>) for more information on what options are available.
+			</li>
+			<li>
+				Chat history may be stored indefinitely in registered channels by default. This
+				can be disabled by channel operators. Keep in mind that anything you say in a
+				channel might be seen by anyone who joins, even if they join later.
+			</li>
+		</ul>
 		<h2 id="client-recommendation">IRC client recommendations</h2>
 		<p>
 			As milkmedicine is an IRCv3 network, it works best with clients that support
-			features such as SASL authentication, <code>chathistory</code>
-			extensions and more. You can review
+			features such as SASL authentication, chat history and more. You can review
 			<a href="https://ircv3.net/software/clients">this client list</a>
-			for some options. <a href="https://halloy.chat">Halloy</a> is a good desktop one. I recommend
-			doing your own research and experimenting with different clients to find one that suits
-			you best.
+			for some options.
+			<b
+				><a href="https://halloy.chat">Halloy</a> is a good desktop client I've found myself
+				using that supports a great variety of setups.</b
+			> I recommend doing your own research and experimenting with different clients to find
+			one that suits you best.
 		</p>
 		<p>
-			I personally run <a href="https://soju.im/" rel="external">Soju</a>
-			bouncer +
-			<a href="https://git.sr.ht/~delthas/senpai/" rel="external">Senpai</a> client, but it's
-			pretty advanced to set up and use, so I wouldn't recommend it for beginners.
+			I personally run <a href="https://soju.im/" rel="external">soju</a> as a bouncer and
+			<a href="https://git.sr.ht/~delthas/senpai/" rel="external">senpai</a> as client, or
+			halloy if I feel like it, but it's an advanced thing to set up and use, so I wouldn't
+			recommend it for beginners.
 		</p>
 		<footer>
 			<div class="medicine">
 				<img src="/medicine.webp" alt="Medicine is yummy!!!!" height="757" width="995" />
 				<p>
 					<a
-						href="https://x.com/NES_Ghost/status/1973016819087864027"
-						rel="external noreferrer">[img source]</a
+						href="https://xcancel.com/NES_Ghost/status/1973016819087864027"
+						rel="external noreferrer">(image source)</a
 					>
 				</p>
 			</div>

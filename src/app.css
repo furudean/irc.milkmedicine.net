@@ -153,3 +153,13 @@ hr {
 		border-color: #393e40;
 	}
 }
+
+ul,
+ol {
+	padding-left: 2rem;
+}
+
+li {
+	margin: 0.5rem;
+	line-height: 1.4;
+}
