@@ -107,7 +107,7 @@
 		</p>
 
 		<p>
-			If you are completely new to IRC you may find
+			If you are new to IRC you may find
 			<a href="https://libera.chat/guides/basics" rel="external"
 				>the Libera Chat IRC guide</a
 			> a good introduction.
@@ -144,16 +144,18 @@
 			<a href="https://ircv3.net/software/clients">this client list</a>
 			for some options.
 			<b
-				><a href="https://halloy.chat">Halloy</a> is a good desktop client I've found myself
-				using that supports a great variety of setups.</b
+				><a href="https://halloy.chat">Halloy</a> is a desktop client that supports a variety
+				of setups.</b
 			> I recommend doing your own research and experimenting with different clients to find
 			one that suits you best.
 		</p>
 		<p>
 			I personally run <a href="https://soju.im/" rel="external">soju</a> as a bouncer and
-			<a href="https://git.sr.ht/~delthas/senpai/" rel="external">senpai</a> as client, or
-			halloy if I feel like it, but it's an advanced thing to set up and use, so I wouldn't
-			recommend it for beginners.
+			<a href="https://git.sr.ht/~delthas/senpai/" rel="external">senpai</a> as client on
+			desktop, or
+			<a href="https://halloy.chat/">halloy</a> depending on the day. On my phone I
+			connect through
+			<a href="https://codeberg.org/emersion/goguma" rel="external">goguma</a>.
 		</p>
 		<footer>
 			<div class="medicine">
