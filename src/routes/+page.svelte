@@ -74,7 +74,7 @@
 		<p>
 			IRC has no algorithms, engagement nudging or no data harvesting. We are defining
 			community how we like it. The internet used to dream of itself, and now we dream in
-			its hollow husk. Come dream with us, big sister. World domination is at hand.
+			its hollow husk. Come, big sister. World domination is at hand.
 		</p>
 
 		<h2>Connect</h2>
