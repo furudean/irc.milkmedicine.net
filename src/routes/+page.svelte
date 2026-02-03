@@ -199,7 +199,7 @@
 
 	main {
 		grid-area: 'main';
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 	}
 
 	.motd {
