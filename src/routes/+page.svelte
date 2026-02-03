@@ -169,6 +169,9 @@
 			</div>
 		</footer>
 	</main>
+	<span class="home">
+		<a href="https://milkmedicine.net/">milkmedicine.net</a>
+	</span>
 </div>
 
 <style>
@@ -199,7 +202,7 @@
 
 	main {
 		grid-area: 'main';
-		margin-bottom: 4rem;
+		margin-bottom: 2rem;
 	}
 
 	.motd {
@@ -209,7 +212,7 @@
 		font-size: 0.8em;
 		opacity: 0.5;
 		text-wrap: balance;
-		margin: 1rem 0;
+		margin: 1.5rem 0;
 	}
 
 	.motd :any-link {
@@ -285,5 +288,21 @@
 		font-family: 'Fantasque Sans Mono', monospace;
 		margin: 0.25em 0;
 		margin-left: 2em;
+	}
+
+	.home {
+		position: fixed;
+		top: 0;
+		right: 0;
+		font-family: 'Fantasque Sans Mono', monospace;
+		writing-mode: vertical-lr;
+		/* text-orientation: upright; */
+		line-height: 1;
+		text-indent: 0;
+		padding: 4px 0;
+	}
+
+	.home :any-link {
+		text-decoration: wavy underline;
 	}
 </style>
