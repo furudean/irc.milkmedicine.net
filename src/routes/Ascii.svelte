@@ -8,7 +8,7 @@
 
 	const filtered_channels = $derived(channels?.filter((channel) => channel.is_registered))
 
-	let line_length = $state(45)
+	let line_length = $state(47)
 
 	/** @type {HTMLPreElement} */
 	let pre_element
@@ -127,15 +127,14 @@
 		const context = document.createElement('canvas')?.getContext('2d')
 
 		if (context) {
-			context.font = getComputedStyle(pre_element).font
+			const style = getComputedStyle(pre_element)
+			context.font = style.font
+			context.letterSpacing = style.letterSpacing
 			const metrics = context.measureText('a')
 			const char_width = metrics.width
-			line_length = Math.floor(pre_element.clientWidth / char_width)
+			line_length = Math.floor(pre_element.clientWidth / char_width) - 2
 			return
 		}
-
-		// fallback
-		line_length = 39
 	}
 	const server_status = $derived.by(() => {
 		let result = ''
