@@ -101,13 +101,13 @@
 				while (word.length > 0) {
 					const test_line = current_line + sep + word
 					let test_line_visible = htmlUnescape(strip_simple_html_tags(test_line))
-					if (test_line_visible.length > max_len) {
+					if (test_line_visible.length > max_len - 3) {
 						if (current_line) {
 							result_chunks.push(current_line)
 							current_line = ''
 							sep = ''
 						} else {
-							const cut = slice_by_visible(word, max_len)
+							const cut = slice_by_visible(word, max_len - 3)
 							result_chunks.push(word.slice(0, cut))
 							word = word.slice(cut)
 						}
@@ -132,7 +132,7 @@
 			context.letterSpacing = style.letterSpacing
 			const metrics = context.measureText('a')
 			const char_width = metrics.width
-			line_length = Math.floor(pre_element.clientWidth / char_width) - 2
+			line_length = Math.floor(pre_element.clientWidth / char_width)
 			return
 		}
 	}
