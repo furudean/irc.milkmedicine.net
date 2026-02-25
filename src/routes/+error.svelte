@@ -8,7 +8,7 @@
 
 <div class="wrapper">
 	<main>
-		<h1>{page.status} {page.error?.message}</h1>
+		<h1>{page.status} - {page.error?.message}</h1>
 		<p>
 			aaaugughhghgudhuauhahhhuhuhuahhauaaauauuuuuahuhaaowauauuwuwowowowoaaoooawuwuwauauaauuwuwuwuwuauwausdusdkksfjksfjkkafjdskfjskdfjklslalfk;f;e;'2'3;4'f;mdw,.svfg,wlsf.;l
 		</p>
