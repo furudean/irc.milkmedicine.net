@@ -177,8 +177,6 @@
 		grid-template-areas:
 			'main'
 			'sidebar';
-		max-width: 90ch;
-		padding: 0 1em;
 	}
 
 	@media (width > 50rem) {
@@ -199,7 +197,6 @@
 
 	main {
 		grid-area: 'main';
-		margin-bottom: 2rem;
 	}
 
 	.motd {

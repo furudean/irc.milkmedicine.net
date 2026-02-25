@@ -29,6 +29,15 @@ body {
 	font-family: 'Nunito', sans-serif;
 }
 
+.wrapper {
+	max-width: 90ch;
+	padding: 0 1em;
+}
+
+main {
+	margin-bottom: 2rem;
+}
+
 h1,
 .fake-h1 {
 	/* font-family: monospace; */
