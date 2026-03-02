@@ -55,6 +55,14 @@
 					width="88"
 				/></a
 			>
+			<span class="button">
+				<img
+					src="poweredbyreisen.png"
+					alt="Reisen Powered"
+					height="32"
+					width="96"
+				/>
+			</span>
 		</div>
 	</aside>
 
@@ -229,6 +237,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
+		align-items: center;
 	}
 
 	.button {
