@@ -56,12 +56,7 @@
 				/></a
 			>
 			<span class="button">
-				<img
-					src="poweredbyreisen.png"
-					alt="Reisen Powered"
-					height="32"
-					width="96"
-				/>
+				<img src="poweredbyreisen.png" alt="Reisen Powered" height="32" width="96" />
 			</span>
 		</div>
 	</aside>
@@ -130,8 +125,8 @@
 				<a
 					href="https://github.com/ergochat/ergo/blob/stable/docs/USERGUIDE.md"
 					rel="external">Ergo user guide</a
-				> for more information about some features that are unique to Ergo, like always-on
-				and chat history.
+				> for more information about some features that are unique to Ergo, like always-on and
+				chat history.
 			</li>
 			<li>
 				You may register for an account using NickServ to protect your nickname, and then
