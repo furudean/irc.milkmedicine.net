@@ -1,4 +1,5 @@
 <script>
+	/* eslint-disable svelte/no-at-html-tags */
 	import { onMount } from 'svelte'
 	import ascii from './ascii.txt?raw'
 	import { htmlEscape, htmlUnescape } from 'escape-goat'
@@ -6,7 +7,7 @@
 	/** @type {{ status: import("./$types").PageData['status'], channels: import("./$types").PageData['channels'] }} */
 	let { status, channels } = $props()
 
-	const filtered_channels = $derived(channels?.filter((channel) => channel.is_registered))
+	const filtered_channels = $derived(channels?.filter((channel) => channel.registered))
 
 	let line_length = $state(47)
 
@@ -157,7 +158,7 @@
 		let result = ''
 		for (const channel of filtered_channels ?? []) {
 			result += `<b>${channel.name}</b> `
-			result += `(${numeric(channel.users)} user${channel.users == 1 ? '' : 's'})`
+			result += `(${numeric(channel.userCount)} user${channel.userCount == 1 ? '' : 's'})`
 
 			const safe_topic = htmlEscape(channel?.topic ?? '')
 			if (safe_topic) {

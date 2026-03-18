@@ -18,6 +18,27 @@ import { ERGO_API_AUTH_TOKEN } from '$env/static/private'
  * @property {string} version
  */
 
+/**
+ * @typedef {Object} ErgoChannel
+ * @property {string} name
+ * @property {boolean} hasKey
+ * @property {boolean} inviteOnly
+ * @property {boolean} secret
+ * @property {number} userCount
+ * @property {string} topic
+ * @property {string} [topicSetAt]
+ * @property {string} createdAt
+ * @property {boolean} registered
+ * @property {string} [owner]
+ * @property {string} [registeredAt]
+ */
+
+/**
+ * @typedef {Object} ErgoChannelsResponse
+ * @property {boolean} success
+ * @property {ErgoChannel[]} channels
+ */
+
 /** @type {import('./$types').PageServerLoad} */
 export const load = async ({ fetch }) => {
 	/**
@@ -46,15 +67,23 @@ export const load = async ({ fetch }) => {
 	}
 
 	/**
-	 * @type {Array<{name: string, topic: string, users: number, is_registered: boolean}>}
+	 * @type {Array<ErgoChannel>}
 	 */
 	let channels = []
 	try {
-		const response = await fetch('/channels.json')
-		if (!response.ok) {
-			console.error('Failed to fetch channels:', response.status, await response.text())
+		const response = await fetch('https://irc.milkmedicine.net/ergo/api/v1/list', {
+			method: 'POST',
+			headers: {
+				Authorization: 'Bearer ' + ERGO_API_AUTH_TOKEN
+			}
+		})
+		if (response.ok) {
+			const parsed_response = /** @type {ErgoChannelsResponse} */ (await response.json())
+			channels = parsed_response.channels
+				.filter((c) => !c.secret)
+				.toSorted((a, b) => b.userCount - a.userCount)
 		} else {
-			channels = await response.json()
+			console.error('fetch ircd status failed:', response.status, await response.text())
 		}
 	} catch (err) {
 		console.error('error fetching channels:', err)
