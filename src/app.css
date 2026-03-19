@@ -21,6 +21,20 @@
 	font-style: normal;
 }
 
+:root {
+	color-scheme: light;
+}
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #3b3341 #fffff5;
+}
+
+::selection {
+	background: #007bff;
+	color: #fffff5;
+}
+
 body {
 	background-color: #fffff5;
 	color: #3b3341;
@@ -145,6 +159,14 @@ hr {
 }
 
 @media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+	}
+
+	* {
+		scrollbar-color: #cdc5e1 #0a0c09;
+	}
+
 	body {
 		background-color: #0a0c09;
 		color: #cdc5e1;
