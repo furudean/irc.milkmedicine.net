@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> this repo has moved to https://codeberg.org/himawari/irc.milkmedicine.net
+
 # irc.milkmedicine.net
 
 accompanying website for an irc server
